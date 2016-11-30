@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet"
+	href="http://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet'
+	href="https://fonts.googleapis.com/css?family=Open+Sans">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+/* Set black background color, white text and some padding */
+footer {
+	background-color: #0f0f0f;
+	color: white;
+	padding: 15px;
+}
+
+li {
+	display: inline;
+}
+</style>
+</head>
+<body ng-app="myApp">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#/">MailBook</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					
+                    <li class="dropdown"><a class="dropdown-toggle"
+                        data-toggle="dropdown" href="#/listofBlog">Blogs <span class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="#/addNew">Add new Post</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+
+                        </ul></li>
+                        
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#/">Friends <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Search Friend</a></li>
+							<li><a href="#">Friend List</a></li>
+						</ul></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#">Jobs <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Search Jobs</a></li>
+							<li><a href="#">View Applied Jobs</a></li>
+							<li><a href="#">Post New Job</a></li>
+						</ul></li>
+					<li><a href="#">Events</a></li>
+					<li><a href="#">Chat Forums</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#/register"><span
+							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="#/login"><span
+							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<h1>
+		<center>Collaboration</center>
+	</h1>
+	<hr>
+
+	<div ng-view=""></div>
+
+	<footer class="container-fluid">
+		<div style="float: left;">
+			<p>Created By Mohammed Ismail</p>
+		</div>
+	</footer>
+
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="c_user/userController.js"></script>
+	<script type="text/javascript" src="c_user/userService.js"></script>
+	<script type="text/javascript" src="c_blog/blogController.js"></script>
+	<script type="text/javascript" src="c_blog/blogService.js"></script>
+</body>
+</html>
