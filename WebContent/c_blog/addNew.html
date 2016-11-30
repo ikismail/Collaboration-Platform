@@ -1,0 +1,74 @@
+<!-- Created by ikism on Nov 30, 2016 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+<body>
+	<div class="generic-container" ng-controller="blogController as ctrl">
+
+<!-- 
+		<div ng-hide='ctrl.blog.errorMessage=="" '>
+			<div class="alert alert-danger fade in">Error :
+				{{ctrl.blog.errorMessage}}</div>
+		</div>
+
+		<div ng-show='ctrl.blog.errorMessage==""'>
+ -->
+			<div class="container" style="margin-bottom: 19px">
+				<h1 class="well">Add New Post !</h1>
+				<div class="col-lg-12 well">
+					<div class="row">
+
+						<!--  RegisterServlet  form -->
+						<form ng-submit="ctrl.submit()" name="myForm">
+							<div class="col-sm-12">
+								<div class="row">
+
+									<div hidden>
+										<label>UserId</label> <input type="text"
+											ng-model="ctrl.blog.blogId">
+									</div>
+
+									<div class="col-sm-12 form-group">
+										<label>Title</label> <input type="text"
+											ng-model="ctrl.blog.title" placeholder="Add Post Title.."
+											class="form-control" required>{{ctrl.blog.title}}
+									</div>
+								</div>
+							
+								<div class="row">
+									<div class="col-sm-12 form-group">
+										<label>Description</label>
+										<textarea ng-model="ctrl.blog.description"
+											placeholder="Description.." class="form-control"
+											required rows="12"></textarea>
+									</div>
+								</div>
+
+								<hr>
+								<div>
+
+
+									<div class="form-actions" style="text-align: center;">
+
+										<button type="submit" class="btn btn-primary btn-info"
+											style="text-align: center;">Submit
+										</button>
+										<button type="button" class="btn btn-warning btn-info"
+											style="text-align: center;" ng-click="ctrl.reset()">Reset
+										</button>
+
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

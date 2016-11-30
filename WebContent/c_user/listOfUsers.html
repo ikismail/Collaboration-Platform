@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Users</title>
+</head>
+<body >
+
+        <table ng-controller="userController">
+            <tr >
+                <th>User Id</th>
+                <th>User FName</th>
+                <th>User LName</th>
+                <th>User Email Id</th>
+                <th>User Address</th>
+            </tr>
+            <tr ng-repeat="p in users">
+                <td>{{p.userId}}</td>
+                <td>{{p.fName}}</td>
+                <td>{{p.lName}}</td>
+                <td>{{p.emailId}}</td>
+                <td>{{p.address}}</td>
+
+            </tr>
+        </table>
+
+</body>
+</html>
