@@ -6,15 +6,15 @@
 <title></title>
 </head>
 <body>
-	<div class="generic-container" ng-controller="blogController as ctrl">
+	<div class="generic-container">
 
 <!-- 
-		<div ng-hide='ctrl.blog.errorMessage=="" '>
+		<div ng-hide='blog.errorMessage=="" '>
 			<div class="alert alert-danger fade in">Error :
-				{{ctrl.blog.errorMessage}}</div>
+				{{blog.errorMessage}}</div>
 		</div>
 
-		<div ng-show='ctrl.blog.errorMessage==""'>
+		<div ng-show='blog.errorMessage==""'>
  -->
 			<div class="container" style="margin-bottom: 19px">
 				<h1 class="well">Add New Post !</h1>
@@ -22,26 +22,26 @@
 					<div class="row">
 
 						<!--  RegisterServlet  form -->
-						<form ng-submit="ctrl.submit()" name="myForm">
+						<form ng-submit="submit()" name="myForm">
 							<div class="col-sm-12">
 								<div class="row">
 
 									<div hidden>
 										<label>UserId</label> <input type="text"
-											ng-model="ctrl.blog.blogId">
+											ng-model="blog.blogId">
 									</div>
 
 									<div class="col-sm-12 form-group">
 										<label>Title</label> <input type="text"
-											ng-model="ctrl.blog.title" placeholder="Add Post Title.."
-											class="form-control" required>{{ctrl.blog.title}}
+											ng-model="blog.title" placeholder="Add Post Title.."
+											class="form-control" required>{{blog.title}}
 									</div>
 								</div>
 							
 								<div class="row">
 									<div class="col-sm-12 form-group">
 										<label>Description</label>
-										<textarea ng-model="ctrl.blog.description"
+										<textarea ng-model="blog.description"
 											placeholder="Description.." class="form-control"
 											required rows="12"></textarea>
 									</div>
@@ -57,7 +57,7 @@
 											style="text-align: center;">Submit
 										</button>
 										<button type="button" class="btn btn-warning btn-info"
-											style="text-align: center;" ng-click="ctrl.reset()">Reset
+											style="text-align: center;" ng-click="reset()">Reset
 										</button>
 
 									</div>
