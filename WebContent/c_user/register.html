@@ -5,15 +5,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="generic-container" ng-controller="userController as ctrl">
+	<div class="generic-container" >
 
 
-		<div ng-hide='ctrl.user.errorMessage=="" '>
+		<div ng-hide='user.errorMessage=="" '>
 			<div class="alert alert-danger fade in">Error :
-				{{ctrl.user.errorMessage}}</div>
+				{{user.errorMessage}}</div>
 		</div>
 
-		<div ng-show='ctrl.user.errorMessage==""'>
+		<div ng-show='user.errorMessage==""'>
 
 			<div class="container" style="margin-bottom: 19px">
 				<h1 class="well">Register Here !</h1>
@@ -21,7 +21,7 @@
 					<div class="row">
 
 						<!--  RegisterServlet  form -->
-						<form ng-submit="ctrl.submit()" name="myForm">
+						<form ng-submit="submit()" name="myForm">
 							<div class="col-sm-12">
 								<div class="row">
 									<div class="col-sm-4 form-group">
@@ -33,15 +33,15 @@
 
 												<div class="col-sm-4 form-group">
 													<input type="radio" name="role" value="STUDENT"
-														ng-model="ctrl.user.role">Student
+														ng-model="user.role">Student
 												</div>
 												<div class="col-sm-4 form-group">
 													<input type="radio" name="role" value="ALUMNI"
-														ng-model="ctrl.user.role" checked>Alumni
+														ng-model="user.role" checked>Alumni
 												</div>
 												<div class="col-sm-4 form-group">
 													<input type="radio" name="role" value="EMPLOYEE"
-														ng-model="ctrl.user.role">Employee
+														ng-model="user.role">Employee
 												</div>
 
 											</label>
@@ -61,18 +61,18 @@
 
 									<div hidden>
 										<label>UserId</label> <input type="text"
-											ng-model="ctrl.user.userId">
+											ng-model="user.userId">
 									</div>
 
 									<div class="col-sm-6 form-group">
 										<label>First Name</label> <input type="text"
-											ng-model="ctrl.user.fName" placeholder="Enter First Name.."
-											class="form-control" required> {{ctrl.user.fName}}
+											ng-model="user.fName" placeholder="Enter First Name.."
+											class="form-control" required> {{user.fName}}
 									</div>
 
 									<div class="col-sm-6 form-group">
 										<label>Last Name</label> <input type="text"
-											ng-model="ctrl.user.lName" placeholder="Enter Last Name.."
+											ng-model="user.lName" placeholder="Enter Last Name.."
 											class="form-control">
 									</div>
 
@@ -81,13 +81,13 @@
 
 									<div class="col-sm-6 form-group">
 										<label>Email Id</label> <input type="text"
-											ng-model="ctrl.user.emailId" placeholder="Enter Email ID.."
+											ng-model="user.emailId" placeholder="Enter Email ID.."
 											class="form-control" required>
 									</div>
 
 									<div class="col-sm-6 form-group">
 										<label>Phone Number</label> <input type="text"
-											ng-model="ctrl.user.phoneNo"
+											ng-model="user.phoneNo"
 											placeholder="Enter Phone Number.." class="form-control"
 											required>
 
@@ -96,7 +96,7 @@
 								<div class="row">
 									<div class="col-sm-12 form-group">
 										<label>Address</label>
-										<textarea ng-model="ctrl.user.address"
+										<textarea ng-model="user.address"
 											placeholder="Enter your Address.." class="form-control"
 											required></textarea>
 									</div>
@@ -109,7 +109,7 @@
 
 										<div class="col-sm-6 form-group">
 											<label>Password</label> <input type="password"
-												ng-model="ctrl.user.password" placeholder="********"
+												ng-model="user.password" placeholder="********"
 												class="form-control" id="pass">
 										</div>
 										<div class="col-sm-6 form-group">
@@ -124,7 +124,7 @@
 											style="text-align: center;" onclick="Validate()">Submit
 										</button>
 										<button type="button" class="btn btn-warning btn-info"
-											style="text-align: center;" ng-click="ctrl.reset()">Reset
+											style="text-align: center;" ng-click="reset()">Reset
 										</button>
 
 									</div>

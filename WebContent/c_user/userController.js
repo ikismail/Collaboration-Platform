@@ -5,8 +5,7 @@
 app.controller('userController', function($scope, userService) {
 	console.log('-----starting controller')
 
-	var self = this;
-	self.user = {
+	$scope.user = {
 		userId : '',
 		fName : '',
 		lName : '',
@@ -20,36 +19,38 @@ app.controller('userController', function($scope, userService) {
 		status : ''
 	};
 
-	self.users;
+	$scope.users;
 
-	self.fetchAllUsers = function() {
+	  function fetchAllUsers() {
 		console.log('---entering getAllUsers Controller')
 		userService.fetchAllUsers()
 		.then(function(data) {
 			console.log('Controller Data' + data)
-			self.users = data;
+			$scope.users = data;
 		}, function(error) {
 			console.error('Error ' + error)
 		});
 	};
+	fetchAllUsers();
 
-	self.createUser = function(user) {
+	$scope.createUser = function(user) {
 		console.log('entering create user in controller')
-		userService.createUser(user).then(self.fetchAllUsers, function(error) {
+		userService.createUser(user)
+		.then(fetchAllUsers(), function(error) {
 			consol.error('Error while creating user')
 		});
 	};
 
-	self.submit = function() {
+	$scope.submit = function() {
 		{
-			console.log('Saving New User', self.user);
-			self.createUser(self.user);
+			console.log('Saving New User', $scope.user);
+			$scope.createUser($scope.user);
 		}
-		self.reset();
+		$scope.reset();
 	}
 
-	self.reset = function() {
-		self.user = {
+	$scope.reset = function() {
+		$scope.user = {
 			userId : '',
 			fName : '',
 			lName : '',

@@ -5,9 +5,7 @@
 app.controller('blogController', function($scope, blogService) {
 	console.log('entering blog controller')
 
-	var self = this;
-
-	self.blog = {
+	$scope.blog = {
 		blogId : '',
 		blogCreatedDate : '',
 		title : '',
@@ -32,24 +30,25 @@ app.controller('blogController', function($scope, blogService) {
 	;
 	fetchAllBlogs();
 
-	self.createBlog = function(blog) {
+	$scope.createBlog = function(blog) {
 		console.log('create Blog...')
-		blogService.createBlog(blog).then(fetchAllBlogs(),
+		blogService.createBlog(blog)
+		.then(fetchAllBlogs(),
 				function(errResponse) {
 					console.error('Error while Creating Blog')
 				});
 	};
 
-	self.submit = function() {
+	$scope.submit = function() {
 		{
-			console.log('saving Blog', self.blog)
-			self.createBlog(self.blog);
+			console.log('saving Blog', $scope.blog)
+			$scope.createBlog($scope.blog);
 		}
-		self.reset();
+		$scope.reset();
 	};
 
-	self.reset = function() {
-		self.blog = {
+	$scope.reset = function() {
+		$scope.blog = {
 			blogId : '',
 			blogCreatedDate : '',
 			title : '',
