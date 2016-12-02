@@ -13,7 +13,7 @@ app.factory('userService', function($http) {
 
 		console.log('----entering getAllUsers')
 		return $http.get(BASE_URL + "/getAllUsers").then(function(response) {
-			console.log('Data : ' + response.data)
+			console.log('Status : ' + response.status)
 			return response.data
 		}, function(response) {
 			console.log('Error : ' + response.data)
@@ -31,7 +31,14 @@ app.factory('userService', function($http) {
 					console.log('Error while creating user')
 					return response.data
 				});
-	}
+	}, userService.authenticate = function(user) {
+		console.log('entering authentication in services User :' + user)
+		return $http.post(BASE_URL + "/user/validate/", user).then(
+				function(response) {
+					console.log('Status :' + response.status)
+					return response.data;
+				}, null);
+	};
 
 	return userService;
 

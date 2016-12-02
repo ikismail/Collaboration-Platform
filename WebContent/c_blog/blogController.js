@@ -2,7 +2,7 @@
  * Created by ikism on Nov 30, 2016
  */
 
-app.controller('blogController', function($scope, blogService) {
+app.controller('blogController', function($scope, blogService, $location) {
 	console.log('entering blog controller')
 
 	$scope.blog = {
@@ -11,7 +11,7 @@ app.controller('blogController', function($scope, blogService) {
 		title : '',
 		description : '',
 		likes : '',
-		dislike : '',
+		dislikes : '',
 		reason : '',
 		status : '',
 		userId : ''
@@ -32,19 +32,67 @@ app.controller('blogController', function($scope, blogService) {
 
 	$scope.createBlog = function(blog) {
 		console.log('create Blog...')
-		blogService.createBlog(blog)
-		.then(fetchAllBlogs(),
+		blogService.createBlog(blog).then(fetchAllBlogs(),
 				function(errResponse) {
 					console.error('Error while Creating Blog')
 				});
 	};
 
+	$scope.updateBlog = function(blogId) {
+		console.log('entering updateBlog in controller' + blogId)
+		blogService.updateBlog(blogId).then(fetchAllBlogs(),
+				function(errResponse) {
+					console.error('Error while updating : ' + errResponse)
+				});
+	};
+
+	$scope.update = function() {
+		{
+			console.log('updating', $scope.blog.blogId)
+			$scope.updateBlog($scope.blog.blogId);
+		}
+	}
+
 	$scope.submit = function() {
 		{
-			console.log('saving Blog', $scope.blog)
+			console.log('saving Blog'+ $scope.blog)
 			$scope.createBlog($scope.blog);
 		}
 		$scope.reset();
+		$location.path('/listofBlog')
+	};
+
+	$scope.deleteBlog = function(blogId) {
+		console.log('entering deleteBlog in controller blogId : ' + blogId)
+		blogService.deleteBlog(blogId).then(function() {
+			console.log('Deleted Successfully')
+			alert('Deleted Successfully')
+			$location.path('/')
+			
+			
+		}, function() {
+			console.log('Unable to delete')
+		})
+	};
+	
+	$scope.upvoteBlog = function(blogId){
+		console.log('entering upvote controller')
+		blogService.upvoteBlog(blogId).then(function(){
+			console.log('Upvoted')
+			$location.path('#/listOfBlogs')
+		},function(){
+			console.log('unable to upvote')
+		})
+	};
+	
+	$scope.downvoteBlog = function(blogId){
+		console.log('entering upvote controller')
+		blogService.downvoteBlog(blogId).then(function(){
+			console.log('downvoted')
+			$location.path('#/listOfBlogs')
+		},function(){
+			console.log('unable to downvote')
+		})
 	};
 
 	$scope.reset = function() {
@@ -54,7 +102,7 @@ app.controller('blogController', function($scope, blogService) {
 			title : '',
 			description : '',
 			likes : '',
-			dislike : '',
+			dislikes : '',
 			reason : '',
 			status : '',
 			userId : ''

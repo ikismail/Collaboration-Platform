@@ -16,8 +16,7 @@ app.factory('blogService', function($http) {
 					console.error('Error while getting all Blogs')
 					return response.data
 				});
-	}
-	
+	};
 
 	blogService.createBlog = function(blog) {
 		console.log('entering createBlog')
@@ -28,7 +27,50 @@ app.factory('blogService', function($http) {
 					console.error('Error while Creating Blogs')
 					return response.data
 				});
-	}
+	};
+
+	blogService.updateBlog = function(blogId) {
+		console.log('entering update Blog Id : ' + blogId)
+		return $http.put(BASE_URL + "/blog/updateBlog/", blogId).then(
+				function(response) {
+					return respose.data;
+				}, function(errResponse) {
+					return errResponse.data;
+				});
+	};
+
+	blogService.deleteBlog = function(blogId) {
+		console.log('entering service delete')
+		return $http['delete'](BASE_URL + "/blog/" + blogId).then(
+				function(response) {
+					console.log(response.status)
+					return response.status
+				}, function() {
+					console.log(response.status)
+				})
+	};
+	
+	blogService.upvoteBlog = function(blogId){
+		console.log('entering upvote service')
+		return $http.get(BASE_URL + "/blog/upvote/" + blogId)
+		.then(function(response){
+			console.log(response.status)
+			return response.status
+		},function(){
+			console.log(reponse.status)
+		})
+	};
+	
+	blogService.downvoteBlog = function(blogId){
+		console.log('entering downvote service')
+		return $http.get(BASE_URL + "/blog/downvote/" + blogId)
+		.then(function(response){
+			console.log(response.status)
+			return response.status
+		},function(){
+			console.log(reponse.status)
+		})
+	};
 	return blogService;
 
 })
