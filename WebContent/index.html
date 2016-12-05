@@ -2,7 +2,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Collaboration</title>
+
+<link rel="icon" type="image/x-icon" href="c_resource/favicon.png">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -50,16 +53,17 @@ li {
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					
-                    <li class="dropdown"><a class="dropdown-toggle"
-                        data-toggle="dropdown" href="#/listofBlog">Blogs <span class="caret"></span></a>
 
-                        <ul class="dropdown-menu">
-                            <li><a href="#/addNew">Add new Post</a></li>
-                            <li><a href="#">Page 1-2</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#/listofBlog">Blogs <span
+							class="caret"></span></a>
 
-                        </ul></li>
-                        
+						<ul class="dropdown-menu">
+							<li><a href="#/addNew">Add new Post</a></li>
+							<li><a href="#">Page 1-2</a></li>
+
+						</ul></li>
+
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#/">Friends <span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -103,10 +107,14 @@ li {
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 	<script type="text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+	<script type="text/javascript"
+		src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="c_user/userController.js"></script>
 	<script type="text/javascript" src="c_user/userService.js"></script>
 	<script type="text/javascript" src="c_blog/blogController.js"></script>
 	<script type="text/javascript" src="c_blog/blogService.js"></script>
+	<script type="text/javascript" src="c_comment/commentController.js"></script>
+	<script type="text/javascript" src="c_comment/commentService.js"></script>
 </body>
 </html>

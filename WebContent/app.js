@@ -28,8 +28,8 @@ app.config(function($routeProvider) {
 		templateUrl : 'c_blog/listofBlog.html',
 		controller : 'blogController'
 	}).when('/addNew', {
-		templateUrl : 'c_blog/addNew.html'
-
+		templateUrl : 'c_blog/addNew.html',
+		controller : 'blogController'
 	})
 	.otherwise({redirectTo:'/'})
 })

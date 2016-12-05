@@ -16,7 +16,9 @@
 					<div class="w3-container">
 						<h4 class="w3-center">My Profile</h4>
 						<p class="w3-center">
-							<img src="" class="w3-circle" style="height: 106px; width: 106px"
+							<img
+								src="http://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
+								class="w3-circle" style="height: 106px; width: 106px"
 								alt="Avatar">
 						</p>
 						<hr>
@@ -77,42 +79,58 @@
 			</div>
 
 			<!-- Middle Column -->
-			<div class="w3-col m7">
-
-				<div class="w3-row-padding">
-					<div class="w3-col m12">
-						<div class="w3-card-2 w3-round w3-white">
-							<div class="w3-container w3-padding">
-								<h6 class="w3-opacity">Social Media template by w3.css</h6>
-								<p contenteditable="true" class="w3-border w3-padding">Status:
-									Feeling Blue</p>
-								<button type="button" class="w3-btn w3-theme">
-									<i class="fa fa-pencil"></i>  Post
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
+			<div class="w3-col m7" ng-controller="commentController">
 
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
 					ng-repeat="b in blogs | orderBy:'-blogId'">
-					<br> 
+					<br>
 					<p hidden="true">{{b.blogId}}</p>
-					<img src="" alt="Avatar"
-						class="w3-left w3-circle w3-margin-right" style="width: 60px">
 					<span class="w3-right w3-opacity">{{b.blogCreatedDate}}</span>
 					<h4>{{b.title}}</h4>
 					<br>
 					<hr class="w3-clear">
 					<p>{{b.description}}.</p>
-					<button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom">
-						<i class="fa fa-thumbs-up"></i>  Like
-					</button>
-					<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom">
-						<i class="fa fa-comment"></i>  Comment
-					</button>
+
+					<div style="float: left;">
+
+						<button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"
+							ng-click="upvoteBlog(b.blogId)">
+							<i class="fa fa-thumbs-up"> {{b.likes}}</i> Like
+						</button>
+						<button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"
+							ng-click="downvoteBlog(b.blogId)">
+							<i class="fa fa-thumbs-down"> {{b.dislikes}}</i> Like
+						</button>
+						<button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"
+							ng-click="fetchAllComments(b.blogId)">
+							<i class="fa fa-thumbs-down"></i> Comments
+						</button>
+					</div>
+
+					<div style="float: right">
+						<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom">
+							<i class="fa fa-pencil-square-o" ng-click="update()"></i> Update
+						</button>
+						<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
+							ng-click="deleteBlog(b.blogId)">
+							<i class="fa fa-trash-o"></i> Delete
+						</button>
+					</div>
+					<div style="margin-top: 60px">
+						<h6 class="w3-opacity">Comments</h6>
+
+						<div ng-repeat="c in comments | orderBy:'-commentId'">
+							<h4>{{c.comment}}</h4>
+							<span class="w3-right w3-opacity">{{c.commentedDate}}</span>
+
+						</div>
+
+						<p contenteditable="true" class="w3-border w3-padding">Comment:
+							Your feel</p>
+						<button type="button" class="w3-btn w3-theme">
+							<i class="fa fa-pencil"></i>  Post
+						</button>
+					</div>
 				</div>
 
 
@@ -121,7 +139,7 @@
 			</div>
 
 			<!-- Right Column -->
-			<div class="w3-col m2">
+			<div class="w3-col m2" style="float: right;">
 				<div class="w3-card-2 w3-round w3-white w3-center">
 					<div class="w3-container">
 						<p>Upcoming Events:</p>
@@ -140,7 +158,9 @@
 				<div class="w3-card-2 w3-round w3-white w3-center">
 					<div class="w3-container">
 						<p>Friend Request</p>
-						<img src="" alt="Avatar" style="width: 50%"><br> <span>Jane
+						<img
+							src="http://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
+							alt="Avatar" style="width: 50%"><br> <span>Jane
 							Doe</span>
 						<div class="w3-row w3-opacity">
 							<div class="w3-half">
