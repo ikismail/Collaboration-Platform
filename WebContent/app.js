@@ -30,6 +30,11 @@ app.config(function($routeProvider) {
 	}).when('/addNew', {
 		templateUrl : 'c_blog/addNew.html',
 		controller : 'blogController'
+	}).when('/edit/:blogId', {
+		templateUrl : 'c_blog/editBlog.html',
+		controller : 'editController'
+
+	}).otherwise({
+		redirectTo : '/'
 	})
-	.otherwise({redirectTo:'/'})
 })

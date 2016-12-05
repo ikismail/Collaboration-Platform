@@ -108,9 +108,12 @@
 					</div>
 
 					<div style="float: right">
-						<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom">
-							<i class="fa fa-pencil-square-o" ng-click="update()"></i> Update
-						</button>
+						<a href="#/edit/{{b.blogId}}" >Edit</a>
+						
+						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
+							href="#/edit/{{b.blogId}}">
+							<i class="fa fa-pencil-square-o"></i> Update
+						</a>
 						<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
 							ng-click="deleteBlog(b.blogId)">
 							<i class="fa fa-trash-o"></i> Delete
