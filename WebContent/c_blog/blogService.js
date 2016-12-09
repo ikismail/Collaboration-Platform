@@ -29,14 +29,11 @@ app.factory('blogService', function($http) {
 				});
 	};
 
-	blogService.updateBlog = function(blogId) {
-		console.log('entering update Blog Id : ' + blogId)
-		return $http.put(BASE_URL + "/blog/updateBlog/", blogId).then(
-				function(response) {
-					return respose.data;
-				}, function(errResponse) {
-					return errResponse.data;
-				});
+	blogService.updateBlog = function(blogId, blog) {
+		console.log('entering update BlogId : ' + blogId)
+		console.log('entering update Blog :' + blog)
+		console.log(BASE_URL + "/blog/updateBlog/", blogId, blog)
+		return $http.put(BASE_URL + "/blog/updateBlog/" + blogId, blog);
 	};
 
 	blogService.deleteBlog = function(blogId) {
@@ -49,28 +46,33 @@ app.factory('blogService', function($http) {
 					console.log(response.status)
 				})
 	};
-	
-	blogService.upvoteBlog = function(blogId){
+
+	blogService.upvoteBlog = function(blogId) {
 		console.log('entering upvote service')
-		return $http.get(BASE_URL + "/blog/upvote/" + blogId)
-		.then(function(response){
-			console.log(response.status)
-			return response.status
-		},function(){
-			console.log(reponse.status)
-		})
+		return $http.get(BASE_URL + "/blog/upvote/" + blogId).then(
+				function(response) {
+					console.log(response.status)
+					return response.status
+				}, function() {
+					console.log(reponse.status)
+				})
 	};
-	
-	blogService.downvoteBlog = function(blogId){
+
+	blogService.downvoteBlog = function(blogId) {
 		console.log('entering downvote service')
-		return $http.get(BASE_URL + "/blog/downvote/" + blogId)
-		.then(function(response){
-			console.log(response.status)
-			return response.status
-		},function(){
-			console.log(reponse.status)
-		})
+		return $http.get(BASE_URL + "/blog/downvote/" + blogId).then(
+				function(response) {
+					console.log(response.status)
+					return response.status
+				}, function() {
+					console.log(reponse.status)
+				})
 	};
+
+	blogService.getBlog = function(blogId) {
+		return $http.get(BASE_URL + "/blog/getBlog/" + blogId)
+	};
+
 	return blogService;
 
 })

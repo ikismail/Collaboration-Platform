@@ -1,8 +1,7 @@
+<!-- Created by ikism on Dec 6, 2016 -->
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Blog</title>
 </head>
 <body class="w3-theme-l5">
 	<div class="w3-container w3-content"
@@ -79,57 +78,28 @@
 			</div>
 
 			<!-- Middle Column -->
-			<div class="w3-col m7" ng-controller="commentController">
+			<div class="w3-col m7">
 
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
-					ng-repeat="b in blogs | orderBy:'-blogId'">
+					ng-repeat="j in jobs | orderBy:'-blogId'">
 					<br>
-					<p hidden="true">{{b.blogId}}</p>
-					<span class="w3-right w3-opacity">{{b.blogCreatedDate}}</span>
-					<h4>{{b.title}}</h4>
-					<br>
+					<p hidden="true">{{j.jobId}}</p>
+					<span class="w3-right w3-opacity">{{j.postDate}}</span>
+					<h4>{{j.title}}</h4>
+					<p>Company : {{j.company}}</p>
+					<p>Salary : {{j.salary}}</p>
+					<p>Qualifications : {{j.qualification}}</p>
 					<hr class="w3-clear">
-					<p>{{b.description}}.</p>
-
-					<div style="float: left;">
-
-						<button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"
-							ng-click="upvoteBlog(b.blogId)">
-							<i class="fa fa-thumbs-up"> {{b.likes}}</i> Like
-						</button>
-						<button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"
-							ng-click="downvoteBlog(b.blogId)">
-							<i class="fa fa-thumbs-down"> {{b.dislikes}}</i> Like
-						</button>
-						<button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"
-							ng-click="fetchAllComments(b.blogId)">
-							<i class="fa fa-thumbs-down"></i> Comments
-						</button>
-					</div>
+					<p>{{j.description}}.</p>
 
 					<div style="float: right">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							href="#/edit/{{b.blogId}}"> <i class="fa fa-pencil-square-o"></i>
+							href="#/editJob/{{j.jobId}}"> <i class="fa fa-pencil-square-o"></i>
 							Update
 						</a>
 						<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							ng-click="deleteBlog(b.blogId)">
+							ng-click="deleteBlog(j.jobId)">
 							<i class="fa fa-trash-o"></i> Delete
-						</button>
-					</div>
-					<div style="margin-top: 60px">
-						<h6 class="w3-opacity">Comments</h6>
-
-						<div ng-repeat="c in comments | orderBy:'-commentId'">
-							<h4>{{c.comment}}</h4>
-							<span class="w3-right w3-opacity">{{c.commentedDate}}</span>
-
-						</div>
-
-						<p contenteditable="true" class="w3-border w3-padding">Comment:
-							Your feel</p>
-						<button type="button" class="w3-btn w3-theme">
-							<i class="fa fa-pencil"></i>  Post
 						</button>
 					</div>
 				</div>

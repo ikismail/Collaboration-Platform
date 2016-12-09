@@ -1,0 +1,73 @@
+<!-- Created by ikism on Nov 30, 2016 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+<body>
+	<div class="generic-container">
+
+<!-- 
+		<div ng-hide='blog.errorMessage=="" '>
+			<div class="alert alert-danger fade in">Error :
+				{{blog.errorMessage}}</div>
+		</div>
+
+		<div ng-show='blog.errorMessage==""'>
+ -->
+			<div class="container" style="margin-bottom: 19px">
+				<h1 class="well">Update Post !</h1>
+				<div class="col-lg-12 well">
+					<div class="row">
+
+						<!--  RegisterServlet  form -->
+						<form  name="myForm">
+							<div class="col-sm-12">
+								<div class="row">
+
+									<div hidden>
+										<label>UserId</label> <input type="text"
+											ng-model="blog.blogId">
+									</div>
+
+									<div class="col-sm-12 form-group">
+										<label>Title</label> <input type="text"
+											ng-model="blog.title" placeholder="Add Post Title.."
+											class="form-control" required>
+									</div>
+								</div>
+							
+								<div class="row">
+									<div class="col-sm-12 form-group">
+										<label>Description</label>
+										<textarea ng-model="blog.description"
+											placeholder="Description.." class="form-control"
+											required rows="12"></textarea>
+									</div>
+								</div>
+
+								<hr>
+								<div>
+
+
+									<div class="form-actions" style="text-align: center;">
+
+										<button type="submit" class="btn btn-primary btn-info"
+											style="text-align: center;" ng-click="update()">Submit</button>
+										<button type="button" class="btn btn-warning btn-info"
+											style="text-align: center;" ng-click="reset()">Reset
+										</button>
+
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
