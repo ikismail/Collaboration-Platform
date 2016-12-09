@@ -34,7 +34,22 @@ app.config(function($routeProvider) {
 		templateUrl : 'c_blog/editBlog.html',
 		controller : 'editController'
 
-	}).otherwise({
+	})
+
+	// job Module
+
+	.when('/listOfJobs', {
+		templateUrl : 'c_job/jobList.html',
+		controller : 'jobController'
+	}).when('/addJob', {
+		templateUrl : 'c_job/addJob.html',
+		controller : 'jobController'
+	}).when('/editJob/:jobId', {
+		templateUrl : 'c_job/editJob.html',
+		controller : 'editController'
+	})
+
+	.otherwise({
 		redirectTo : '/'
 	})
 })

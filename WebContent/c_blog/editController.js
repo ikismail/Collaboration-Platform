@@ -14,12 +14,10 @@ app.controller('editController', function($scope, $routeParams, $location,
 
 	$scope.update = function() {
 		console.log('entering update function')
-		blogService.updateBlog(blogId, $scope.blog).then(function(response) {
-			console.log('updatedSuccessfully')
-			$location.path('/listofBlog')
-		}, function(response) {
-			console.log('Cannot update')
-		});
+		blogService.updateBlog(blogId, $scope.blog);
+		console.log('updated successfully')
+		alert('updated successfully');
+		$location.path('/');
 	};
 
 })

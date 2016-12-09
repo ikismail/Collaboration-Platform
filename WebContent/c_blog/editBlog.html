@@ -22,7 +22,7 @@
 					<div class="row">
 
 						<!--  RegisterServlet  form -->
-						<form ng-submit="update()" name="myForm">
+						<form  name="myForm">
 							<div class="col-sm-12">
 								<div class="row">
 
@@ -34,7 +34,7 @@
 									<div class="col-sm-12 form-group">
 										<label>Title</label> <input type="text"
 											ng-model="blog.title" placeholder="Add Post Title.."
-											class="form-control" required>{{blog.title}}
+											class="form-control" required>
 									</div>
 								</div>
 							
@@ -54,7 +54,7 @@
 									<div class="form-actions" style="text-align: center;">
 
 										<button type="submit" class="btn btn-primary btn-info"
-											style="text-align: center;">Submit</button>
+											style="text-align: center;" ng-click="update()">Submit</button>
 										<button type="button" class="btn btn-warning btn-info"
 											style="text-align: center;" ng-click="reset()">Reset
 										</button>

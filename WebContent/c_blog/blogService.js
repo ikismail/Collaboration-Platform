@@ -33,13 +33,7 @@ app.factory('blogService', function($http) {
 		console.log('entering update BlogId : ' + blogId)
 		console.log('entering update Blog :' + blog)
 		console.log(BASE_URL + "/blog/updateBlog/", blogId, blog)
-		return $http.put(BASE_URL + "/blog/updateBlog/",blogId).then(function(response){
-			console.log('Successfully Updated')
-		    console.log('response :')
-		},function(repsonse){
-			console.log('Cannot be update')
-		})
-		
+		return $http.put(BASE_URL + "/blog/updateBlog/" + blogId, blog);
 	};
 
 	blogService.deleteBlog = function(blogId) {
