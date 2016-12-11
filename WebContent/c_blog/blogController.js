@@ -46,7 +46,7 @@ app.controller('blogController', function($scope, blogService, $location) {
 				});
 	};
 
-	$scope.update = function() {
+	$scope.updateBlog = function() {
 		{
 			console.log('updating', $scope.blog.blogId)
 			$scope.updateBlog($scope.blog.blogId);
@@ -55,11 +55,11 @@ app.controller('blogController', function($scope, blogService, $location) {
 
 	$scope.submit = function() {
 		{
-			console.log('saving Blog'+ $scope.blog)
+			console.log('saving Blog' + $scope.blog)
 			$scope.createBlog($scope.blog);
 		}
 		$scope.reset();
-		$location.path('/listofBlog')
+		$location.path("/listofBlog")
 	};
 
 	$scope.deleteBlog = function(blogId) {
@@ -67,30 +67,29 @@ app.controller('blogController', function($scope, blogService, $location) {
 		blogService.deleteBlog(blogId).then(function() {
 			console.log('Deleted Successfully')
 			alert('Deleted Successfully')
-			$location.path('/')
-			
-			
+			$location.path("/listofBlog")
+
 		}, function() {
 			console.log('Unable to delete')
 		})
 	};
-	
-	$scope.upvoteBlog = function(blogId){
+
+	$scope.upvoteBlog = function(blogId) {
 		console.log('entering upvote controller')
-		blogService.upvoteBlog(blogId).then(function(){
+		blogService.upvoteBlog(blogId).then(function() {
 			console.log('Upvoted')
-			$location.path('#/listOfBlogs')
-		},function(){
+			$location.path("/listOfBlogs")
+		}, function() {
 			console.log('unable to upvote')
 		})
 	};
-	
-	$scope.downvoteBlog = function(blogId){
+
+	$scope.downvoteBlog = function(blogId) {
 		console.log('entering upvote controller')
-		blogService.downvoteBlog(blogId).then(function(){
+		blogService.downvoteBlog(blogId).then(function() {
 			console.log('downvoted')
-			$location.path('#/listOfBlogs')
-		},function(){
+			$location.path("/listOfBlogs")
+		}, function() {
 			console.log('unable to downvote')
 		})
 	};

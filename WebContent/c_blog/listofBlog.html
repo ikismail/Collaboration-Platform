@@ -79,10 +79,10 @@
 			</div>
 
 			<!-- Middle Column -->
-			<div class="w3-col m7" ng-controller="commentController">
+			<div class="w3-col m7" data-ng-controller="commentController">
 
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
-					ng-repeat="b in blogs | orderBy:'-blogId'">
+					data-ng-repeat="b in blogs | orderBy:'-blogId'">
 					<br>
 					<p hidden="true">{{b.blogId}}</p>
 					<span class="w3-right w3-opacity">{{b.blogCreatedDate}}</span>
@@ -93,34 +93,35 @@
 
 					<div style="float: left;">
 
-						<button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"
-							ng-click="upvoteBlog(b.blogId)">
-							<i class="fa fa-thumbs-up"> {{b.likes}}</i> Like
-						</button>
-						<button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"
-							ng-click="downvoteBlog(b.blogId)">
-							<i class="fa fa-thumbs-down"> {{b.dislikes}}</i> Like
-						</button>
-						<button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"
-							ng-click="fetchAllComments(b.blogId)">
-							<i class="fa fa-thumbs-down"></i> Comments
-						</button>
+						<a href="" type="button"
+							class="w3-btn w3-theme-d1 w3-margin-bottom"
+							data-ng-click="upvoteBlog(b.blogId)"> <i class="fa fa-thumbs-up">
+								{{b.likes}}</i> Like
+						</a> <a href="" type="button"
+							class="w3-btn w3-theme-d1 w3-margin-bottom"
+							data-ng-click="downvoteBlog(b.blogId)"> <i
+							class="fa fa-thumbs-down"> {{b.dislikes}}</i> Like
+						</a> <a href="" type="button"
+							class="w3-btn w3-theme-d1 w3-margin-bottom"
+							data-ng-click="fetchAllComments(b.blogId)"> <i
+							class="fa fa-thumbs-down"></i> Comments
+						</a>
 					</div>
 
 					<div style="float: right">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							href="#/edit/{{b.blogId}}"> <i class="fa fa-pencil-square-o"></i>
+							href="#/editBlog/{{b.blogId}}"> <i class="fa fa-pencil-square-o"></i>
 							Update
 						</a>
-						<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							ng-click="deleteBlog(b.blogId)">
+						<a href="" type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
+							data-ng-click="deleteBlog(b.blogId)">
 							<i class="fa fa-trash-o"></i> Delete
-						</button>
+						</a>
 					</div>
 					<div style="margin-top: 60px">
 						<h6 class="w3-opacity">Comments</h6>
 
-						<div ng-repeat="c in comments | orderBy:'-commentId'">
+						<div data-ng-repeat="c in comments | orderBy:'-commentId'">
 							<h4>{{c.comment}}</h4>
 							<span class="w3-right w3-opacity">{{c.commentedDate}}</span>
 
@@ -128,9 +129,9 @@
 
 						<p contenteditable="true" class="w3-border w3-padding">Comment:
 							Your feel</p>
-						<button type="button" class="w3-btn w3-theme">
+						<a href="" type="button" class="w3-btn w3-theme">
 							<i class="fa fa-pencil"></i>  Post
-						</button>
+						</a>
 					</div>
 				</div>
 

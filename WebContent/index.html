@@ -22,9 +22,7 @@
 	href="http://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <link rel='stylesheet'
 	href="https://fonts.googleapis.com/css?family=Open+Sans">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="c_resource/assets/css/font-awesome.min.css">
 <style>
 
 /* Set black background color, white text and some padding */
@@ -39,7 +37,7 @@ li {
 }
 </style>
 </head>
-<body ng-app="myApp">
+<body ng-app="myApp" data-ng-controller="userController">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -81,10 +79,16 @@ li {
 					<li><a href="#">Chat Forums</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#/register"><span
+				<li data-ng-show="currentUser"><a href=""><span
+							class="glyphicon glyphicon-user"></span>{{currentUser.fName +" " +currentUser.lName}}</a></li>
+					<li data-ng-hide="currentUser"><a href="#/register"><span
 							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="#/login"><span
+					<li data-ng-hide="currentUser"><a href="#/login"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li data-ng-show="currentUser">
+						<a type="button" data-ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+					</li>
+
 				</ul>
 			</div>
 		</div>
@@ -104,11 +108,11 @@ li {
 	</footer>
 
 	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		src="c_resource/assets/js/angular.min.js"></script>
 	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+		src="c_resource/assets/js/angular-route.min.js"></script>
 	<script type="text/javascript"
-		src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.min.js"></script>
+		src="c_resource/assets/js/angular-cookies.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="c_user/userController.js"></script>
 	<script type="text/javascript" src="c_user/userService.js"></script>
