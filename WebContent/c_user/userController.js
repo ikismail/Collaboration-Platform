@@ -17,8 +17,8 @@ app
 						emailId : '',
 						phoneNo : '',
 						address : '',
-						password:'',
-						reason:'',
+						password : '',
+						reason : '',
 						isOnline : '',
 						errorCode : '',
 						errorMessage : '',
@@ -41,10 +41,22 @@ app
 
 					$scope.createUser = function(user) {
 						console.log('entering create user in controller')
-						userService.createUser(user).then(fetchAllUsers(),
-								function(error) {
-									consol.error('Error while creating user')
-								});
+						userService
+								.createUser(user)
+								.then(
+										function(response) {
+											console
+													.log('registered Successfully'
+															+ response.status)
+											$scope.user = {};
+											$scope.user.errorMessage = "Registered Successfully";
+										},
+										function(error) {
+											consol
+													.error('Error while creating user')
+											$scope.user = {};
+											$scope.user.errorMessage = "Error while creating user please try again";
+										});
 					};
 
 					$scope.submit = function() {
@@ -52,7 +64,7 @@ app
 							console.log('Saving New User', $scope.user);
 							$scope.createUser($scope.user);
 						}
-						$scope.reset();
+
 					};
 
 					$scope.authenticate = function(user) {
@@ -62,11 +74,11 @@ app
 								.then(
 										function(d) {
 											$scope.user = d;
-											console.log('userErrorCode' + $scope.user.errorCode)
+											console.log('userErrorCode'
+													+ $scope.user.errorCode)
 											if ($scope.user.errorCode == '404') {
-												alert($scope.user.errorMessage)
-														$scope.user.emailId = '';
-														$scope.user.password = '';
+												$scope.user.emailId = '';
+												$scope.user.password = '';
 											} else {
 												console
 														.log('Valid credentials. Navigating to home')
@@ -75,7 +87,7 @@ app
 														+ $rootScope.currentUser;
 												$cookies.put('currentUser',
 														$rootScope.currentUser);
-												$location.path("#/listofBlog")
+												$location.path("/listofBlog")
 											}
 										},
 										function(errResponse) {
@@ -89,33 +101,37 @@ app
 						{
 							console.log('login validation ', $scope.user)
 							$scope.authenticate($scope.user);
+
 						}
 					}
-					
-					$scope.logout = function(){
+
+					$scope.logout = function() {
 						console.log('logging out')
 						$rootScope.currentUser = null;
 						$cookies.remove('currentUser');
-						userService.logout()
-						$location.path("#/");	
+						userService.logout();
+						$location.path("/login");
+						$scope.user.errorMessage = "Logout out Successfully";
+						$scope.user.emailId = '';
+						$scope.user.password = '';
 					}
 
 					$scope.reset = function() {
 						$scope.user = {
-								userId : '',
-								fName : '',
-								lName : '',
-								role : '',
-								emailId : '',
-								phoneNo : '',
-								address : '',
-								password:'',
-								reason:'',
-								isOnline : '',
-								errorCode : '',
-								errorMessage : '',
-								status : ''
-							};
+							userId : '',
+							fName : '',
+							lName : '',
+							role : '',
+							emailId : '',
+							phoneNo : '',
+							address : '',
+							password : '',
+							reason : '',
+							isOnline : '',
+							errorCode : '',
+							errorMessage : '',
+							status : ''
+						};
 						$scope.myForm.$setPristine();
 					};
 				})

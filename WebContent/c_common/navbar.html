@@ -1,0 +1,65 @@
+<!-- Created by ikism on Dec 12, 2016 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--Navbar -->
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#/">MailBook</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					
+						<li class="dropdown" data-ng-show="currentUser"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="">Blogs <span class="caret"></span></a>
+
+							<ul class="dropdown-menu">
+								<li><a href="#/addNew">Add new Post</a></li>
+								<li><a href="#/listofBlog">Blog List</a></li>
+
+							</ul></li>
+
+						<li data-ng-show="currentUser"><a href="#/friendList">Friends</a></li>
+
+						<li class="dropdown" data-ng-show="currentUser"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="">Jobs <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#/listOfJobs">Search Jobs</a></li>
+								<li><a href="#">View Applied Jobs</a></li>
+								<li><a href="#/addJob">Post New Job</a></li>
+							</ul></li>
+						<li data-ng-show="currentUser"><a href="#">Events</a></li>
+						<li data-ng-show="currentUser"><a href="#">Chat Forums</a></li>
+					
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li data-ng-show="currentUser"><a href=""><span
+							class="glyphicon glyphicon-user"></span>{{currentUser.fName +" "
+							+currentUser.lName}}</a></li>
+					<li data-ng-hide="currentUser"><a href="#/register"><span
+							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li data-ng-hide="currentUser"><a href="#/login"><span
+							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li data-ng-show="currentUser"><a type="button" href=""
+						data-ng-click="logout()"><span
+							class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- End Navbar -->
+</body>
+</html>

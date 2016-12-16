@@ -5,138 +5,132 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="generic-container" >
+	<div class="generic-container">
 
 
-		<div ng-hide='user.errorMessage=="" '>
-			<div class="alert alert-danger fade in">Error :
-				{{user.errorMessage}}</div>
+		<div ng-show='user.errorMessage'>
+			<div class="alert alert-danger fade in">{{user.errorMessage}}</div>
+
 		</div>
 
-		<div ng-show='user.errorMessage==""'>
+		<div class="container" style="margin-bottom: 19px">
+			<h1 class="well">Register Here !</h1>
+			<div class="col-lg-12 well">
+				<div class="row">
 
-			<div class="container" style="margin-bottom: 19px">
-				<h1 class="well">Register Here !</h1>
-				<div class="col-lg-12 well">
-					<div class="row">
+					<!--  RegisterServlet  form -->
+					<form ng-submit="submit()" name="myForm">
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-4 form-group">
 
-						<!--  RegisterServlet  form -->
-						<form ng-submit="submit()" name="myForm">
-							<div class="col-sm-12">
-								<div class="row">
-									<div class="col-sm-4 form-group">
+									<label>Register As...</label>
 
-										<label>Register As...</label>
+									<div class="radio">
+										<label class="radio-inline">
 
-										<div class="radio">
-											<label class="radio-inline">
+											<div class="col-sm-4 form-group">
+												<input type="radio" name="role" value="STUDENT"
+													ng-model="user.role">Student
+											</div>
+											<div class="col-sm-4 form-group">
+												<input type="radio" name="role" value="ALUMNI"
+													ng-model="user.role" checked>Alumni
+											</div>
+											<div class="col-sm-4 form-group">
+												<input type="radio" name="role" value="EMPLOYEE"
+													ng-model="user.role">Employee
+											</div>
 
-												<div class="col-sm-4 form-group">
-													<input type="radio" name="role" value="STUDENT"
-														ng-model="user.role">Student
-												</div>
-												<div class="col-sm-4 form-group">
-													<input type="radio" name="role" value="ALUMNI"
-														ng-model="user.role" checked>Alumni
-												</div>
-												<div class="col-sm-4 form-group">
-													<input type="radio" name="role" value="EMPLOYEE"
-														ng-model="user.role">Employee
-												</div>
-
-											</label>
-										</div>
-
-									</div>
-
-									<div class="col-sm-4 form-group">
-										<center>
-											<h2>User Details</h2>
-										</center>
+										</label>
 									</div>
 
 								</div>
 
-								<div class="row">
-
-									<div hidden>
-										<label>UserId</label> <input type="text"
-											ng-model="user.userId">
-									</div>
-
-									<div class="col-sm-6 form-group">
-										<label>First Name</label> <input type="text"
-											ng-model="user.fName" placeholder="Enter First Name.."
-											class="form-control" required> {{user.fName}}
-									</div>
-
-									<div class="col-sm-6 form-group">
-										<label>Last Name</label> <input type="text"
-											ng-model="user.lName" placeholder="Enter Last Name.."
-											class="form-control">
-									</div>
-
-								</div>
-								<div class="row">
-
-									<div class="col-sm-6 form-group">
-										<label>Email Id</label> <input type="text"
-											ng-model="user.emailId" placeholder="Enter Email ID.."
-											class="form-control" required>
-									</div>
-
-									<div class="col-sm-6 form-group">
-										<label>Phone Number</label> <input type="text"
-											ng-model="user.phoneNo"
-											placeholder="Enter Phone Number.." class="form-control"
-											required>
-
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-12 form-group">
-										<label>Address</label>
-										<textarea ng-model="user.address"
-											placeholder="Enter your Address.." class="form-control"
-											required></textarea>
-									</div>
+								<div class="col-sm-4 form-group">
+									<center>
+										<h2>User Details</h2>
+									</center>
 								</div>
 
-								<hr>
-								<div>
+							</div>
 
-									<div class="row">
+							<div class="row">
 
-										<div class="col-sm-6 form-group">
-											<label>Password</label> <input type="password"
-												ng-model="user.password" placeholder="********"
-												class="form-control" id="pass">
-										</div>
-										<div class="col-sm-6 form-group">
-											<label>Confirm Password</label> <input type="password"
-												placeholder="********" class="form-control" id="confirmpass" />
-										</div>
-									</div>
+								<div hidden>
+									<label>UserId</label> <input type="text" ng-model="user.userId">
+								</div>
 
-									<div class="form-actions" style="text-align: center;">
+								<div class="col-sm-6 form-group">
+									<label>First Name</label> <input type="text"
+										ng-model="user.fName" placeholder="Enter First Name.."
+										class="form-control" required> {{user.fName}}
+								</div>
 
-										<button type="submit" class="btn btn-primary btn-info"
-											style="text-align: center;" onclick="Validate()">Submit
-										</button>
-										<button type="button" class="btn btn-warning btn-info"
-											style="text-align: center;" ng-click="reset()">Reset
-										</button>
+								<div class="col-sm-6 form-group">
+									<label>Last Name</label> <input type="text"
+										ng-model="user.lName" placeholder="Enter Last Name.."
+										class="form-control">
+								</div>
 
-									</div>
+							</div>
+							<div class="row">
+
+								<div class="col-sm-6 form-group">
+									<label>Email Id</label> <input type="text"
+										ng-model="user.emailId" placeholder="Enter Email ID.."
+										class="form-control" required>
+								</div>
+
+								<div class="col-sm-6 form-group">
+									<label>Phone Number</label> <input type="text"
+										ng-model="user.phoneNo" placeholder="Enter Phone Number.."
+										class="form-control" required>
+
 								</div>
 							</div>
-						</form>
-					</div>
+							<div class="row">
+								<div class="col-sm-12 form-group">
+									<label>Address</label>
+									<textarea ng-model="user.address"
+										placeholder="Enter your Address.." class="form-control"
+										required></textarea>
+								</div>
+							</div>
+
+							<hr>
+							<div>
+
+								<div class="row">
+
+									<div class="col-sm-6 form-group">
+										<label>Password</label> <input type="password"
+											ng-model="user.password" placeholder="********"
+											class="form-control" id="pass">
+									</div>
+									<div class="col-sm-6 form-group">
+										<label>Confirm Password</label> <input type="password"
+											placeholder="********" class="form-control" id="confirmpass" />
+									</div>
+								</div>
+
+								<div class="form-actions" style="text-align: center;">
+
+									<button type="submit" class="btn btn-primary btn-info"
+										style="text-align: center;" onclick="Validate()">Submit
+									</button>
+									<button type="button" class="btn btn-warning btn-info"
+										style="text-align: center;" ng-click="reset()">Reset
+									</button>
+
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- Validating Password -->
 
 	<script>

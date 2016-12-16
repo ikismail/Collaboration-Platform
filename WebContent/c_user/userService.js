@@ -48,7 +48,7 @@ app.factory('userService', function($http) {
                 }, 
               null
         );
-	}
+	};
 
 	return userService;
 

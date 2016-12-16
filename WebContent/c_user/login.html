@@ -11,8 +11,13 @@
 				<div class="panel-heading">
 					<h3 class="panel-title" align="center">Sign In</h3>
 				</div>
-				<div class="panel-body">
+				<div ng-show='user.errorMessage'>
+					<div class="alert alert-danger fade in">
+						{{user.errorMessage}}</div>
 
+				</div>
+
+				<div class="panel-body">
 					<form data-ng-submit="login()" role="form">
 						<fieldset>
 							<div class="form-group"
