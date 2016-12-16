@@ -5,7 +5,8 @@
 app
 		.controller(
 				'userController',
-				function($scope, userService, $http, $rootScope, $location) {
+				function($scope, userService, $http, $rootScope, $location,
+						$cookies) {
 					console.log('-----starting controller')
 
 					$scope.user = {
@@ -16,6 +17,8 @@ app
 						emailId : '',
 						phoneNo : '',
 						address : '',
+						password:'',
+						reason:'',
 						isOnline : '',
 						errorCode : '',
 						errorMessage : '',
@@ -59,9 +62,10 @@ app
 								.then(
 										function(d) {
 											$scope.user = d;
+											console.log('userErrorCode' + $scope.user.errorCode)
 											if ($scope.user.errorCode == '404') {
-												console.log($scope.user.errorMessage)
-														$scope.user.emailId = '',
+												alert($scope.user.errorMessage)
+														$scope.user.emailId = '';
 														$scope.user.password = '';
 											} else {
 												console
@@ -69,7 +73,9 @@ app
 												$rootScope.currentUser = $scope.user
 												$http.defaults.headers.common['Authorization'] = 'Basic'
 														+ $rootScope.currentUser;
-												$location.path('/')
+												$cookies.put('currentUser',
+														$rootScope.currentUser);
+												$location.path("#/listofBlog")
 											}
 										},
 										function(errResponse) {
@@ -85,21 +91,31 @@ app
 							$scope.authenticate($scope.user);
 						}
 					}
+					
+					$scope.logout = function(){
+						console.log('logging out')
+						$rootScope.currentUser = null;
+						$cookies.remove('currentUser');
+						userService.logout()
+						$location.path("#/");	
+					}
 
 					$scope.reset = function() {
 						$scope.user = {
-							userId : '',
-							fName : '',
-							lName : '',
-							role : '',
-							emailId : '',
-							phoneNo : '',
-							address : '',
-							isOnline : '',
-							errorCode : '',
-							errorMessage : '',
-							status : ''
-						};
+								userId : '',
+								fName : '',
+								lName : '',
+								role : '',
+								emailId : '',
+								phoneNo : '',
+								address : '',
+								password:'',
+								reason:'',
+								isOnline : '',
+								errorCode : '',
+								errorMessage : '',
+								status : ''
+							};
 						$scope.myForm.$setPristine();
 					};
 				})

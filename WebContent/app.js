@@ -2,16 +2,13 @@
  * Created by ikismail on 30-Nov-16
  */
 
-var app = angular.module('myApp', [ 'ngRoute' ]);
+var app = angular.module('myApp', [ 'ngRoute','ngCookies' ]);
 
 console.log('----Starting app.js')
 app.config(function($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl : 'c_common/home.html'
-	})
-
-	// User Module
-	.when('/register', {
+	}).when('/register', {
 		templateUrl : 'c_user/register.html',
 		controller : 'userController'
 	}).when('/login', {
@@ -20,25 +17,16 @@ app.config(function($routeProvider) {
 	}).when('/listOfUsers', {
 		templateUrl : 'c_user/listOfUsers.html',
 		controller : 'userController'
-	})
-
-	// Blog Module
-
-	.when('/listofBlog', {
+	}).when('/listofBlog', {
 		templateUrl : 'c_blog/listofBlog.html',
 		controller : 'blogController'
 	}).when('/addNew', {
 		templateUrl : 'c_blog/addNew.html',
 		controller : 'blogController'
-	}).when('/edit/:blogId', {
+	}).when('/editBlog/:blogId', {
 		templateUrl : 'c_blog/editBlog.html',
-		controller : 'editController'
-
-	})
-
-	// job Module
-
-	.when('/listOfJobs', {
+		controller : 'editBlogController'
+	}).when('/listOfJobs', {
 		templateUrl : 'c_job/jobList.html',
 		controller : 'jobController'
 	}).when('/addJob', {
@@ -46,10 +34,10 @@ app.config(function($routeProvider) {
 		controller : 'jobController'
 	}).when('/editJob/:jobId', {
 		templateUrl : 'c_job/editJob.html',
-		controller : 'editController'
+		controller : 'editJobController'
 	})
 
 	.otherwise({
-		redirectTo : '/'
+		redirectTo : '/listofBlog'
 	})
 })

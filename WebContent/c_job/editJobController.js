@@ -2,7 +2,7 @@
  * Created by ikism on Dec 9, 2016
  */
 
-app.controller('editController', function($scope, jobService, $routeParams,
+app.controller('editJobController', function($scope, jobService, $routeParams,
 		$location) {
 	console.log('entering editJobController')
 
