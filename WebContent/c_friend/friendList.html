@@ -1,7 +1,9 @@
-<!-- Created by ikism on Dec 6, 2016 -->
+<!-- Created by ikism on Dec 12, 2016 -->
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <body>
 	<div class="w3-container w3-content"
@@ -16,7 +18,8 @@
 				<!-- Profile -->
 				<div class="w3-card-2 w3-round w3-white">
 					<div class="w3-container">
-						<h4 class="w3-center">{{currentUser.fName + " " + currentUser.lName}}</h4>
+						<h4 class="w3-center">{{currentUser.fName + " " +
+							currentUser.lName}}</h4>
 						<p class="w3-center">
 							<img
 								src="http://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
@@ -82,31 +85,31 @@
 			<!-- Middle Column -->
 			<div class="w3-col m7">
 
-				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
-					ng-repeat="j in jobs | orderBy:'-blogId'">
-					<br>
-					<p hidden="true">{{j.jobId}}</p>
-					<span class="w3-right w3-opacity">{{j.postDate}}</span>
-					<h4>{{j.title}}</h4>
-					<p>Company : {{j.company}}</p>
-					<p>Salary : {{j.salary}}</p>
-					<p>Qualifications : {{j.qualification}}</p>
-					<hr class="w3-clear">
-					<p>{{j.description}}.</p>
+				<div class="w3-row-padding">
+					<div class="w3-col m12">
+						<div class="w3-card-2 w3-round w3-white">
+							<div class="w3-container w3-padding">
+								<input type="text" class="w3-border w3-padding "
+									placeholder="Search Friends" style="width: 600px"
+									data-ng-model="search"></input>
+							</div>
+						</div>
+					</div>
+				</div>
 
+				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
+					ng-repeat="f in friends | filter:search">
+					<br>
+					<h4>{{f.friendId}}</h4>
 					<div style="float: right">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							href="#/editJob/{{j.jobId}}"> <i
-							class="fa fa-pencil-square-o"></i> Update
+							href=""> <i class="fa fa-pencil-square-o"></i> Update
 						</a>
-						<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							ng-click="deleteBlog(j.jobId)">
-							<i class="fa fa-trash-o"></i> Delete
-						</button>
 					</div>
 				</div>
 				<!-- End Middle Column -->
 			</div>
+			
 			<!-- Right Column -->
 			<div class="w3-col m2">
 				<div class="w3-card-2 w3-round w3-white w3-center">

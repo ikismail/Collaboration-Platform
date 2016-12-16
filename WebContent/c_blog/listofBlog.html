@@ -4,17 +4,21 @@
 <meta charset="ISO-8859-1">
 <title>Blog</title>
 </head>
-<body class="w3-theme-l5">
+<body>
+
 	<div class="w3-container w3-content"
 		style="max-width: 1400px; margin-top: 20px">
 		<!-- The Grid -->
 		<div class="w3-row">
+
+			<!-- 	Left Aside -->
+
 			<!-- Left Column -->
 			<div class="w3-col m3">
 				<!-- Profile -->
 				<div class="w3-card-2 w3-round w3-white">
 					<div class="w3-container">
-						<h4 class="w3-center">My Profile</h4>
+						<h4 class="w3-center">{{currentUser.fName + " " + currentUser.lName}}</h4>
 						<p class="w3-center">
 							<img
 								src="http://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
@@ -24,16 +28,16 @@
 						<hr>
 						<p>
 							<i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>
-							Designer, UI
+							{{currentUser.role}}
 						</p>
 						<p>
 							<i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
-							London, UK
+							{{currentUser.address}}
 						</p>
 						<p>
 							<i
 								class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
-							April 1, 1988
+							{{currentUser.phoneNo}}
 						</p>
 					</div>
 				</div>
@@ -74,9 +78,8 @@
 					</p>
 					<p>People are looking at your profile. Find out who.</p>
 				</div>
-
-				<!-- End Left Column -->
 			</div>
+			<!-- End Left Column -->
 
 			<!-- Middle Column -->
 			<div class="w3-col m7" data-ng-controller="commentController">
@@ -95,8 +98,8 @@
 
 						<a href="" type="button"
 							class="w3-btn w3-theme-d1 w3-margin-bottom"
-							data-ng-click="upvoteBlog(b.blogId)"> <i class="fa fa-thumbs-up">
-								{{b.likes}}</i> Like
+							data-ng-click="upvoteBlog(b.blogId)"> <i
+							class="fa fa-thumbs-up"> {{b.likes}}</i> Like
 						</a> <a href="" type="button"
 							class="w3-btn w3-theme-d1 w3-margin-bottom"
 							data-ng-click="downvoteBlog(b.blogId)"> <i
@@ -110,12 +113,12 @@
 
 					<div style="float: right">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							href="#/editBlog/{{b.blogId}}"> <i class="fa fa-pencil-square-o"></i>
-							Update
-						</a>
-						<a href="" type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							data-ng-click="deleteBlog(b.blogId)">
-							<i class="fa fa-trash-o"></i> Delete
+							href="#/editBlog/{{b.blogId}}"> <i
+							class="fa fa-pencil-square-o"></i> Update
+						</a> <a href="" type="button"
+							class="w3-btn w3-theme-d2 w3-margin-bottom"
+							data-ng-click="deleteBlog(b.blogId)"> <i
+							class="fa fa-trash-o"></i> Delete
 						</a>
 					</div>
 					<div style="margin-top: 60px">
@@ -129,19 +132,16 @@
 
 						<p contenteditable="true" class="w3-border w3-padding">Comment:
 							Your feel</p>
-						<a href="" type="button" class="w3-btn w3-theme">
-							<i class="fa fa-pencil"></i>  Post
+						<a href="" type="button" class="w3-btn w3-theme"> <i
+							class="fa fa-pencil"></i>  Post
 						</a>
 					</div>
 				</div>
-
-
-
 				<!-- End Middle Column -->
 			</div>
 
 			<!-- Right Column -->
-			<div class="w3-col m2" style="float: right;">
+			<div class="w3-col m2">
 				<div class="w3-card-2 w3-round w3-white w3-center">
 					<div class="w3-container">
 						<p>Upcoming Events:</p>
@@ -195,12 +195,10 @@
 
 				<!-- End Right Column -->
 			</div>
-
 			<!-- End Grid -->
 		</div>
 
 		<!-- End Page Container -->
 	</div>
-	<br>
 </body>
 </html>

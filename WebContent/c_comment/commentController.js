@@ -39,7 +39,7 @@ app.controller('commentController',
 					$scope.createComment($scope.comment)
 				}
 				$scope.reset();
-				location.path('/')
+				$location.path("/listofBlog")
 			};
 			$scope.reset = function() {
 				$scope.comment = {

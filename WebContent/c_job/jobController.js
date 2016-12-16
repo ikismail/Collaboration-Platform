@@ -44,7 +44,7 @@ app.controller('jobController', function($scope, jobService, $location) {
 			$scope.createJob($scope.job);
 		}
 		$scope.reset();
-		$location.path('/listOfJobs')
+		$location.path("/listOfJobs")
 	}
 
 	$scope.updateJob = function() {
@@ -59,7 +59,7 @@ app.controller('jobController', function($scope, jobService, $location) {
 		console.log('deleting')
 		jobService.deleteJob(jobId).then(function() {
 			alert('Deleted Successfully')
-			$location.path('/')
+			$location.path("/listOfJobs")
 		}, function() {
 			console.log('Unable to delete')
 		})

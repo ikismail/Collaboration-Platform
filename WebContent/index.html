@@ -37,76 +37,34 @@ li {
 }
 </style>
 </head>
-<body ng-app="myApp" data-ng-controller="userController">
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#/">MailBook</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
+<body class="w3-theme-l5" ng-app="myApp"
+	data-ng-controller="userController">
 
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#/listofBlog">Blogs <span
-							class="caret"></span></a>
+	<div data-ng-include src="'c_common/navbar.html'"></div>
 
-						<ul class="dropdown-menu">
-							<li><a href="#/addNew">Add new Post</a></li>
-							<li><a href="#">Page 1-2</a></li>
-
-						</ul></li>
-
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#/">Friends <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Search Friend</a></li>
-							<li><a href="#">Friend List</a></li>
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Jobs <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#/listOfJobs">Search Jobs</a></li>
-							<li><a href="#">View Applied Jobs</a></li>
-							<li><a href="#/addJob">Post New Job</a></li>
-						</ul></li>
-					<li><a href="#">Events</a></li>
-					<li><a href="#">Chat Forums</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-				<li data-ng-show="currentUser"><a href=""><span
-							class="glyphicon glyphicon-user"></span>{{currentUser.fName +" " +currentUser.lName}}</a></li>
-					<li data-ng-hide="currentUser"><a href="#/register"><span
-							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li data-ng-hide="currentUser"><a href="#/login"><span
-							class="glyphicon glyphicon-log-in"></span> Login</a></li>
-					<li data-ng-show="currentUser">
-						<a type="button" data-ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
-					</li>
-
-				</ul>
-			</div>
-		</div>
-	</nav>
-
+	<!-- title -->
 	<h1>
 		<center>Collaboration</center>
 	</h1>
 	<hr>
+	<!-- end title -->
+
+	<!-- 	middle view -->
 
 	<div ng-view=""></div>
 
+	<!-- End Middle View -->
+
+	<!-- Footer -->
 	<footer class="container-fluid">
 		<div style="float: left;">
 			<p>Created By Mohammed Ismail</p>
 		</div>
 	</footer>
 
+	<!-- End Footer -->
+
+	<!-- 	Angular Script -->
 	<script type="text/javascript"
 		src="c_resource/assets/js/angular.min.js"></script>
 	<script type="text/javascript"
@@ -124,5 +82,9 @@ li {
 	<script type="text/javascript" src="c_job/jobController.js"></script>
 	<script type="text/javascript" src="c_job/jobService.js"></script>
 	<script type="text/javascript" src="c_job/editJobController.js"></script>
+	<script type="text/javascript" src="c_friend/friendController.js"></script>
+	<script type="text/javascript" src="c_friend/friendService.js"></script>
+
+	<!-- 	End AngularScript -->
 </body>
 </html>
