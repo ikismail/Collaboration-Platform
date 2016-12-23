@@ -33,7 +33,7 @@ app
 							console.log('Controller Data' + data)
 							$scope.users = data;
 						}, function(error) {
-							console.error('Error ' + error)
+							console.log('Error ' + error)
 						});
 					}
 					;
@@ -50,12 +50,14 @@ app
 															+ response.status)
 											$scope.user = {};
 											$scope.user.errorMessage = "Registered Successfully";
+											$location.path("/login")
 										},
 										function(error) {
 											consol
 													.error('Error while creating user')
 											$scope.user = {};
 											$scope.user.errorMessage = "Error while creating user please try again";
+											$location.path("/register")
 										});
 					};
 
@@ -77,6 +79,7 @@ app
 											console.log('userErrorCode'
 													+ $scope.user.errorCode)
 											if ($scope.user.errorCode == '404') {
+												$scope.user.errorMessage = "Invalid Credentials";
 												$scope.user.emailId = '';
 												$scope.user.password = '';
 											} else {
@@ -93,6 +96,9 @@ app
 										function(errResponse) {
 											console
 													.error('Error while authenticating User')
+											$scope.user.errorMessage = "Invalid Credentials please check your Id or password";
+											$scope.user.emailId = '';
+											$scope.user.password = '';
 										});
 					};
 
@@ -105,15 +111,16 @@ app
 						}
 					}
 
-					$scope.logout = function() {
+					$rootScope.logout = function() {
 						console.log('logging out')
-						$rootScope.currentUser = null;
 						$cookies.remove('currentUser');
+						delete $rootScope.currentUser;
 						userService.logout();
 						$location.path("/login");
 						$scope.user.errorMessage = "Logout out Successfully";
 						$scope.user.emailId = '';
 						$scope.user.password = '';
+
 					}
 
 					$scope.reset = function() {

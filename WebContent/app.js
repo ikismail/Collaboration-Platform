@@ -2,7 +2,8 @@
  * Created by ikismail on 30-Nov-16
  */
 
-var app = angular.module('myApp', [ 'ngRoute', 'ngCookies' ]);
+var app = angular.module('myApp', [ 'ngRoute', 'ngCookies',
+		'chatApp.controllers', 'chatApp.services' ]);
 
 console.log('----Starting app.js')
 app.config(function($routeProvider) {
@@ -36,9 +37,14 @@ app.config(function($routeProvider) {
 	}).when('/friendList', {
 		templateUrl : 'c_friend/friendList.html',
 		controller : 'friendController'
+	}).when('/chatPage', {
+		templateUrl : 'c_chat/chatPage.html',
+		controller : 'chatController'
 	})
 
 	.otherwise({
 		redirectTo : '/'
 	})
 })
+angular.module("chatApp.controllers", []);
+angular.module("chatApp.services", []);
