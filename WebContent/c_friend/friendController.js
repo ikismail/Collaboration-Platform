@@ -2,19 +2,20 @@
  * Created by ikism on Dec 11, 2016
  */
 
-app.controller('friendController', function(friendService, userService, $http, $scope,
-		$location, $rootScope) {
+app.controller('friendController', function(friendService, userService, $http,
+		$scope, $location, $rootScope) {
 	console.log('Entering friendController')
 
 	$scope.friend = {
 		id : '',
 		friendId : '',
-		userId : '',
+		userID : '',
 		isOnline : '',
 		status : ''
 	};
 
-	$scope.friends;
+	$scope.myFriends;
+	$scope.friendRequests;
 
 	$scope.user = {
 		userId : '',
@@ -39,44 +40,67 @@ app.controller('friendController', function(friendService, userService, $http, $
 		friendService.sendFriendRequest(friendId).then(function(d) {
 			$scope.friend = d;
 			alert("Friend Request Sent")
+			$location.path("/userList")
 		}, function(errResponse) {
 			console.log('Error : ' + errResponse)
 		});
 	};
 
+	// getting my friend lists
 	function getMyFriends() {
 		console.log('Getting my friends')
 		friendService.getMyFriends().then(function(d) {
-			$scope.friends = d;
+			$scope.myFriends = d;
 			console.log('Completed Friends List')
 		}, function(errResponse) {
 			console.log('Error : ' + errResponse)
 		});
 	}
 	;
+	// Getting my new friend requests
+	function getMyFriendRequests() {
+		console.log('Getting my friends')
+		friendService.getNewfriendRequest().then(function(d) {
+			$scope.friendRequests = d;
+			console.log('Completed FriendRequest List')
+		}, function(errResponse) {
+			console.log('Error : ' + errResponse)
+		});
+	}
+	;
 
+	// unfriend
 	$scope.unFriend = function(friendId) {
-		friendService.unFriend(friendId).then(getMyFriends(),
-				function(errResponse) {
-					console.log('Error : ' + errResponse)
-				});
+		friendService.unFriend(friendId).then(function(response) {
+			console.log('Unfriend....')
+			getMyFriends();
+			$location.path("/friendList");
+		}, function(errResponse) {
+			console.log('Error while unfriend')
+		});
 	};
-	
+	// acceptfriend
 	$scope.acceptFriend = function(friendId) {
-		friendService.acceptFriend(friendId).then(getMyFriends(),
-				function(errResponse) {
-					console.log('Error : ' + errResponse)
-				});
+		friendService.acceptFriend(friendId).then(function(response) {
+			console.log('Accepted....')
+			getMyFriendRequests();
+			$location.path("/friendList");
+		}, function(errResponse) {
+			console.log('Error while Accepting friendRequest')
+		});
 	};
-	
+	// rejectfriend
 	$scope.rejectFriend = function(friendId) {
-		friendService.rejectFriend(friendId).then(getMyFriends(),
-				function(errResponse) {
-					console.log('Error : ' + errResponse)
-				});
+		friendService.rejectFriend(friendId).then(function(response) {
+			console.log('Rejected....')
+			getMyFriendRequests();
+			$location.path("/friendList");
+		}, function(errResponse) {
+			console.log('Error while Reject friendRequest')
+		});
 	};
-	
-	
+
+	// for searching purpose
 	function fetchAllUsers() {
 		console.log('---entering getAllUsers Controller')
 		userService.fetchAllUsers().then(function(data) {
@@ -89,6 +113,7 @@ app.controller('friendController', function(friendService, userService, $http, $
 	;
 
 	fetchAllUsers();
+	getMyFriendRequests();
 	getMyFriends();
 
 })

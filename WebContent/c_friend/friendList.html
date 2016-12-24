@@ -98,18 +98,19 @@
 				</div>
 
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
-					ng-repeat="f in friends | filter:search">
+					ng-repeat="mf in myFriends | filter:search">
 					<br>
-					<h4>{{f.friendId}}</h4>
+					<h4>{{mf.friendId}}</h4>
 					<div style="float: right">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							href=""> <i class="fa fa-pencil-square-o"></i> Update
+							href="" data-ng-click="unFriend(mf.friendId)"> <i
+							class="fa fa-pencil-square-o"></i> UnFriend
 						</a>
 					</div>
 				</div>
 				<!-- End Middle Column -->
 			</div>
-			
+
 			<!-- Right Column -->
 			<div class="w3-col m2">
 				<div class="w3-card-2 w3-round w3-white w3-center">
@@ -127,23 +128,23 @@
 				</div>
 				<br>
 
-				<div class="w3-card-2 w3-round w3-white w3-center">
+				<div class="w3-card-2 w3-round w3-white w3-center"
+					data-ng-repeat="fr in friendRequests">
 					<div class="w3-container">
 						<p>Friend Request</p>
 						<img
 							src="http://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
-							alt="Avatar" style="width: 50%"><br> <span>Jane
-							Doe</span>
+							alt="Avatar" style="width: 50%"><br> <span>{{fr.userID}}</span>
 						<div class="w3-row w3-opacity">
 							<div class="w3-half">
 								<button class="w3-btn w3-green w3-btn-block w3-section"
-									title="Accept">
+									title="Accept" data-ng-click="acceptFriend(fr.userID)">
 									<i class="fa fa-check"></i>
 								</button>
 							</div>
 							<div class="w3-half">
 								<button class="w3-btn w3-red w3-btn-block w3-section"
-									title="Decline">
+									title="Decline" data-ng-click="rejectFriend(fr.userID)">
 									<i class="fa fa-remove"></i>
 								</button>
 							</div>

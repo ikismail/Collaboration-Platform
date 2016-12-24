@@ -12,14 +12,24 @@ app.factory('friendService', function($http, $rootScope) {
 	friendService.getMyFriends = function() {
 		return $http.get(BASE_URL + "/myfriends").then(function(response) {
 			return response.data
-		}, null);
+		},function(errResponse){
+			console.log('Error while getting myfriends')
+		});
 	},
+	
+	friendService.getNewfriendRequest = function(){
+		return $http.get(BASE_URL + "/getMyFriendRequests/").then(function(response){
+			return response.data;
+		},function(errResponse){
+			console.log('Error while getting friendRequest')
+		});
+	}
 
 	friendService.sendFriendRequest = function(friendId) {
 		return $http.get(BASE_URL + "/sendFriendRequest/" + friendId).then(function(response) {
 			return response.data;
 		}, function(errResponse) {
-			console.log('Error: ' + errResponse)
+			console.log('Error SendFriendRequest: ' + errResponse)
 		});
 
 	},
@@ -29,7 +39,7 @@ app.factory('friendService', function($http, $rootScope) {
 				function(response) {
 					return response.data;
 				}, function(errResponse) {
-					console.log('Error: ' + errResponse)
+					console.log('Error Unfriend: ' + errResponse)
 
 				});
 	};
@@ -39,7 +49,7 @@ app.factory('friendService', function($http, $rootScope) {
 				function(response) {
 					return response.data;
 				}, function(errResponse) {
-					console.log('Error: ' + errResponse)
+					console.log('Error AcceptFriend: ' + errResponse)
 
 				});
 	};
@@ -49,7 +59,7 @@ app.factory('friendService', function($http, $rootScope) {
 				function(response) {
 					return response.data;
 				}, function(errResponse) {
-					console.log('Error: ' + errResponse)
+					console.log('Error: RejectFrined ' + errResponse)
 
 				});
 	};

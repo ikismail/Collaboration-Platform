@@ -67,7 +67,7 @@ app.controller('blogController', function($scope, blogService, $location) {
 		blogService.deleteBlog(blogId).then(function() {
 			console.log('Deleted Successfully')
 			alert('Deleted Successfully')
-			$location.path("/listofBlog")
+			fetchAllBlogs();
 
 		}, function() {
 			console.log('Unable to delete')
@@ -78,7 +78,7 @@ app.controller('blogController', function($scope, blogService, $location) {
 		console.log('entering upvote controller')
 		blogService.upvoteBlog(blogId).then(function() {
 			console.log('Upvoted')
-			$location.path("/listOfBlogs")
+			fetchAllBlogs();
 		}, function() {
 			console.log('unable to upvote')
 		})
@@ -88,7 +88,7 @@ app.controller('blogController', function($scope, blogService, $location) {
 		console.log('entering upvote controller')
 		blogService.downvoteBlog(blogId).then(function() {
 			console.log('downvoted')
-			$location.path("/listOfBlogs")
+			fetchAllBlogs();
 		}, function() {
 			console.log('unable to downvote')
 		})

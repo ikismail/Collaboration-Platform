@@ -1,11 +1,11 @@
+<!-- Created by ikism on Dec 24, 2016 -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Blog</title>
+<title>Insert title here</title>
 </head>
 <body>
-
 	<div class="w3-container w3-content"
 		style="max-width: 1400px; margin-top: 20px">
 		<!-- The Grid -->
@@ -18,7 +18,8 @@
 				<!-- Profile -->
 				<div class="w3-card-2 w3-round w3-white">
 					<div class="w3-container">
-						<h4 class="w3-center">{{currentUser.fName + " " + currentUser.lName}}</h4>
+						<h4 class="w3-center">{{currentUser.fName + " " +
+							currentUser.lName}}</h4>
 						<p class="w3-center">
 							<img
 								src="http://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
@@ -82,58 +83,30 @@
 			<!-- End Left Column -->
 
 			<!-- Middle Column -->
-			<div class="w3-col m7" data-ng-controller="commentController">
+			<div class="w3-col m7">
+
+				<div class="w3-row-padding">
+					<div class="w3-col m12">
+						<div class="w3-card-2 w3-round w3-white">
+							<div class="w3-container w3-padding">
+								<input type="text" class="w3-border w3-padding "
+									placeholder="Search Friends" style="width: 600px"
+									data-ng-model="search"></input>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
-					data-ng-repeat="b in blogs | orderBy:'-blogId'">
+					ng-repeat="us in users | filter:search">
 					<br>
-					<p hidden="true">{{b.blogId}}</p>
-					<span class="w3-right w3-opacity">{{b.blogCreatedDate}}</span>
-					<h4>{{b.title}}</h4>
-					<br>
-					<hr class="w3-clear">
-					<p>{{b.description}}.</p>
-
-					<div style="float: left;">
-
-						<a href="" type="button"
-							class="w3-btn w3-theme-d1 w3-margin-bottom"
-							data-ng-click="upvoteBlog(b.blogId)"> <i
-							class="fa fa-thumbs-up"> {{b.likes}}</i> Like
-						</a> <a href="" type="button"
-							class="w3-btn w3-theme-d1 w3-margin-bottom"
-							data-ng-click="downvoteBlog(b.blogId)"> <i
-							class="fa fa-thumbs-down"> {{b.dislikes}}</i> Dislike
-						</a> <a href="" type="button"
-							class="w3-btn w3-theme-d1 w3-margin-bottom"
-							data-ng-click="fetchAllComments(b.blogId)"> <i
-							class="fa fa-commenting-o" aria-hidden="true"></i> Comments
-						</a>
-					</div>
-
+					<h4>Name : {{us.fName + " " + us.lName}}</h4>
+					<p>EmailId : {{us.emailId}}</p>
+					<p>Contact No : {{us.phoneNo}}</p>
 					<div style="float: right">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							href="#/editBlog/{{b.blogId}}"> <i
-							class="fa fa-pencil-square-o"></i> Update
-						</a> <a href="" type="button"
-							class="w3-btn w3-theme-d2 w3-margin-bottom"
-							data-ng-click="deleteBlog(b.blogId)"> <i
-							class="fa fa-trash-o"></i> Delete
-						</a>
-					</div>
-					<div style="margin-top: 60px">
-						<h6 class="w3-opacity">Comments</h6>
-
-						<div data-ng-repeat="c in comments | orderBy:'-commentId'">
-							<h4>{{c.comment}}</h4>
-							<span class="w3-right w3-opacity">{{c.commentedDate}}</span>
-
-						</div>
-
-						<p contenteditable="true" class="w3-border w3-padding">Comment:
-							Your feel</p>
-						<a href="" type="button" class="w3-btn w3-theme"> <i
-							class="fa fa-pencil"></i>  Post
+							href="" data-ng-click="sendFriendRequest(us.emailId)"> <i
+							class="fa fa-pencil-square-o"></i> Send Friend Request
 						</a>
 					</div>
 				</div>
