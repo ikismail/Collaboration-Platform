@@ -35,6 +35,11 @@ app.controller('friendController', function(friendService, userService, $http,
 
 	$scope.users;
 
+	// disable the button after sending friend request
+	$scope.disableButton = function(friend) {
+		friend.disabled = true;
+	}
+
 	$scope.sendFriendRequest = function(friendId) {
 		console.log('->sendFriendRequest' + friendId)
 		friendService.sendFriendRequest(friendId).then(function(d) {

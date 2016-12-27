@@ -4,7 +4,7 @@
 
 app.factory('blogService', function($http) {
 	console.log('starting blogService')
-	var BASE_URL = "http://localhost:8091/Cart"
+	var BASE_URL = "http://localhost:8091/Collaboration"
 
 	var blogService = this;
 	blogService.fetchAllBlogs = function() {

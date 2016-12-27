@@ -5,7 +5,7 @@
 app.factory('friendService', function($http, $rootScope) {
 	console.log('entering friendService')
 
-	var BASE_URL = "http://localhost:8091/Cart"
+	var BASE_URL = "http://localhost:8091/Collaboration"
 
 	var friendService = this;
 

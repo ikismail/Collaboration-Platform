@@ -9,12 +9,12 @@
 	<div class="generic-container">
 
 		<!-- 
-		<div ng-hide='job.errorMessage=="" '>
+		<div data-ng-hide='job.errorMessage=="" '>
 			<div class="alert alert-danger fade in">Error :
 				{{job.errorMessage}}</div>
 		</div>
 
-		<div ng-show='job.errorMessage==""'>
+		<div data-ng-show='job.errorMessage==""'>
  -->
 		<div class="container" style="margin-bottom: 19px">
 			<h1 class="well">Update Job !</h1>
@@ -27,7 +27,7 @@
 							<div class="row">
 
 								<div class="col-sm-12 form-group">
-									<label>Title</label> <input type="text" ng-model="job.title"
+									<label>Title</label> <input type="text" data-ng-model="job.title"
 										placeholder="Add Job Title.." class="form-control" required>
 								</div>
 							</div>
@@ -35,16 +35,16 @@
 
 								<div class="col-sm-4 form-group">
 									<label>Company</label> <input type="text"
-										ng-model="job.company" placeholder="Add Job Title.."
+										data-ng-model="job.company" placeholder="Add Job Title.."
 										class="form-control" required>
 								</div>
 								<div class="col-sm-4 form-group">
-									<label>Salary</label> <input type="text" ng-model="job.salary"
+									<label>Salary</label> <input type="text" data-ng-model="job.salary"
 										placeholder="Add Job Title.." class="form-control" required>
 								</div>
 								<div class="col-sm-4 form-group">
 									<label>Qualifications</label> <input type="text"
-										ng-model="job.qualification" placeholder="Add Job Title.."
+										data-ng-model="job.qualification" placeholder="Add Job Title.."
 										class="form-control" required>
 								</div>
 							</div>
@@ -52,7 +52,7 @@
 							<div class="row">
 								<div class="col-sm-12 form-group">
 									<label>Description</label>
-									<textarea ng-model="job.description"
+									<textarea data-ng-model="job.description"
 										placeholder="Description.." class="form-control" required
 										rows="12"></textarea>
 								</div>
@@ -65,7 +65,7 @@
 									<button type="submit" class="btn btn-primary btn-info"
 										style="text-align: center;" data-ng-click="update()">Submit</button>
 									<button type="button" class="btn btn-warning btn-info"
-										style="text-align: center;" ng-click="reset()">Reset
+										style="text-align: center;" data-ng-click="reset()">Reset
 									</button>
 
 								</div>

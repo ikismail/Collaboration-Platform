@@ -83,7 +83,7 @@
 			<div class="w3-col m7">
 
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
-					ng-repeat="j in jobs | orderBy:'-blogId'">
+					data-ng-repeat="j in jobs | orderBy:'-blogId'">
 					<br>
 					<p hidden="true">{{j.jobId}}</p>
 					<span class="w3-right w3-opacity">{{j.postDate}}</span>
@@ -94,13 +94,14 @@
 					<hr class="w3-clear">
 					<p>{{j.description}}.</p>
 
-					<div style="float: right">
+					<div style="float: right" 
+						data-ng-show="currentUser.role=='ADMIN' || currentUser.role=='EMPLOYEE'">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
 							href="#/editJob/{{j.jobId}}"> <i
 							class="fa fa-pencil-square-o"></i> Update
 						</a>
 						<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							ng-click="deleteBlog(j.jobId)">
+							data-ng-click="deleteBlog(j.jobId)" data-ng-show="currentUser.role=='ADMIN'">
 							<i class="fa fa-trash-o"></i> Delete
 						</button>
 					</div>

@@ -98,16 +98,16 @@
 				</div>
 
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
-					ng-repeat="us in users | filter:search">
+					data-ng-repeat="us in users | filter:search">
 					<br>
 					<h4>Name : {{us.fName + " " + us.lName}}</h4>
 					<p>EmailId : {{us.emailId}}</p>
 					<p>Contact No : {{us.phoneNo}}</p>
 					<div style="float: right">
-						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							href="" data-ng-click="sendFriendRequest(us.emailId)"> <i
-							class="fa fa-pencil-square-o"></i> Send Friend Request
-						</a>
+						<button class="w3-btn w3-theme-d2 w3-margin-bottom"
+							data-ng-click="sendFriendRequest(us.emailId); disableButton(us)" data-ng-disabled="us.disabled">
+							<i class="fa fa-pencil-square-o"></i> Send Friend Request
+						</button>
 					</div>
 				</div>
 				<!-- End Middle Column -->

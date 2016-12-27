@@ -23,6 +23,12 @@
 <link rel='stylesheet'
 	href="https://fonts.googleapis.com/css?family=Open+Sans">
 <link rel="stylesheet" href="c_resource/assets/css/font-awesome.min.css">
+<link
+	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+	rel="stylesheet" type="text/css" />
+<link href="c_resource/assets/css/style.css" rel="stylesheet"
+	type="text/css">
+
 <style>
 
 /* Set black background color, white text and some padding */
@@ -37,7 +43,7 @@ li {
 }
 </style>
 </head>
-<body class="w3-theme-l5" ng-app="myApp"
+<body class="w3-theme-l5" data-ng-app="myApp"
 	data-ng-controller="userController">
 
 	<div data-ng-include src="'c_common/navbar.html'"></div>
@@ -51,7 +57,7 @@ li {
 
 	<!-- 	middle view -->
 
-	<div ng-view=""></div>
+	<div data-ng-view=""></div>
 
 	<!-- End Middle View -->
 
@@ -95,7 +101,7 @@ li {
 	<script type="text/javascript" src="c_job/editJobController.js"></script>
 	<script type="text/javascript" src="c_friend/friendController.js"></script>
 	<script type="text/javascript" src="c_friend/friendService.js"></script>
-	<script type="text/javascript" src="c_chat/charService.js"></script>
+	<script type="text/javascript" src="c_chat/chatService.js"></script>
 	<script type="text/javascript" src="c_chat/chatController.js"></script>
 	<!-- 	End AngularScript -->
 </body>

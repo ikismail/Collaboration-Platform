@@ -5,7 +5,7 @@
 app.factory('userService', function($http) {
 	console.log('-----starting userService.js')
 
-	var BASE_URL = "http://localhost:8091/Cart"
+	var BASE_URL = "http://localhost:8091/Collaboration"
 
 	var userService = this;
 

@@ -18,7 +18,8 @@
 				<!-- Profile -->
 				<div class="w3-card-2 w3-round w3-white">
 					<div class="w3-container">
-						<h4 class="w3-center">{{currentUser.fName + " " + currentUser.lName}}</h4>
+						<h4 class="w3-center">{{currentUser.fName + " " +
+							currentUser.lName}}</h4>
 						<p class="w3-center">
 							<img
 								src="http://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
@@ -38,6 +39,11 @@
 							<i
 								class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
 							{{currentUser.phoneNo}}
+						</p>
+						<p>
+							<i
+								class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
+							{{currentUser.emailId}}
 						</p>
 					</div>
 				</div>
@@ -111,7 +117,7 @@
 						</a>
 					</div>
 
-					<div style="float: right">
+					<div style="float: right" data-ng-show="currentUser.emailId == b.userId">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
 							href="#/editBlog/{{b.blogId}}"> <i
 							class="fa fa-pencil-square-o"></i> Update

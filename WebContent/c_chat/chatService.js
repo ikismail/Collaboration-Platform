@@ -1,9 +1,11 @@
 /**
  * Created by ikism on Dec 19, 2016
  */
-var b = angular.module("chatApp.services");
-b.service("ChatService", function($q, $timeout) {
+//var b = anguar.module('myApp.chatService')
 
+app.factory('chatService', function($q, $timeout) {
+
+	console.log('starting chatService')
 	var service = {}, listener = $q.defer(), socket = {
 		client : null,
 		stomp : null
@@ -60,7 +62,7 @@ b.service("ChatService", function($q, $timeout) {
 		socket.stomp = Stomp.over(socket.client);
 		socket.stomp.connect({}, startListener);
 		socket.stomp.onclose = reconnect;
-		alert("lst");
+		alert("Hello");
 	};
 
 	initialize();

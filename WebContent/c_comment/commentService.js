@@ -4,7 +4,7 @@
 
 app.factory('commentService',function($http){
 	console.log('starting commentService')
-	var BASE_URL = "http://localhost:8091/Cart"
+	var BASE_URL = "http://localhost:8091/Collaboration"
 		
 	var commentService = this;
 	commentService.fetchAllComments = function(blogId){
