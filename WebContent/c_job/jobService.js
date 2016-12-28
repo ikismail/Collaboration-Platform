@@ -16,7 +16,7 @@ app.factory('jobService', function($http) {
 			console.error('Error fetchingall data' + error)
 		});
 	};
-	
+
 	jobService.createJob = function(job) {
 		console.log('entering createjob')
 		return $http.post(BASE_URL + "/job/addJob/", job).then(
@@ -27,7 +27,6 @@ app.factory('jobService', function($http) {
 					return response.data
 				});
 	};
-
 
 	jobService.updateJob = function(jobId, job) {
 		console.log('entering update jobId : ' + jobId)
@@ -44,6 +43,17 @@ app.factory('jobService', function($http) {
 					return response.status
 				}, function() {
 					console.log(response.status)
+				})
+	};
+
+	jobService.applyJob = function(jobId) {
+		console.log('entering service Apply')
+		return $http['get'](BASE_URL + "/job/applyJob/" + jobId).then(
+				function(response) {
+					console.log(response.status)
+					return response.data
+				}, function(errResponse) {
+					console.log("Error while Applying: " + errResponse);
 				})
 	};
 

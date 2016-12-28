@@ -16,7 +16,8 @@
 				<!-- Profile -->
 				<div class="w3-card-2 w3-round w3-white">
 					<div class="w3-container">
-						<h4 class="w3-center">{{currentUser.fName + " " + currentUser.lName}}</h4>
+						<h4 class="w3-center">{{currentUser.fName + " " +
+							currentUser.lName}}</h4>
 						<p class="w3-center">
 							<img
 								src="http://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
@@ -94,16 +95,24 @@
 					<hr class="w3-clear">
 					<p>{{j.description}}.</p>
 
-					<div style="float: right" 
+					<div style="float: right"
+						data-ng-show="currentUser.role=='STUDENT' || currentUser.role=='EMPLOYEE'">
+						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
+							data-ng-click="applyJob(j.jobId); disableButton(j)"
+							data-ng-disabled="j.disabled"> <i class="fa fa-plus-square"></i>
+							Apply Job
+						</a>
+					</div>
+					<div style="float: right"
 						data-ng-show="currentUser.role=='ADMIN' || currentUser.role=='EMPLOYEE'">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
 							href="#/editJob/{{j.jobId}}"> <i
 							class="fa fa-pencil-square-o"></i> Update
+						</a> <a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
+							data-ng-click="deleteBlog(j.jobId)"
+							data-ng-show="currentUser.role=='ADMIN'"> <i
+							class="fa fa-trash-o"></i> Delete
 						</a>
-						<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
-							data-ng-click="deleteBlog(j.jobId)" data-ng-show="currentUser.role=='ADMIN'">
-							<i class="fa fa-trash-o"></i> Delete
-						</button>
 					</div>
 				</div>
 				<!-- End Middle Column -->

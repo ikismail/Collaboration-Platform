@@ -56,13 +56,10 @@ app.factory('chatService', function($q, $timeout) {
 	};
 
 	var initialize = function() {
-		alert("start");
 		socket.client = new SockJS(service.SOCKET_URL);
-		alert("hi");
 		socket.stomp = Stomp.over(socket.client);
 		socket.stomp.connect({}, startListener);
 		socket.stomp.onclose = reconnect;
-		alert("Hello");
 	};
 
 	initialize();

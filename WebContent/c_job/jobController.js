@@ -18,6 +18,11 @@ app.controller('jobController', function($scope, jobService, $location) {
 
 	$scope.jobs;
 
+	// disable the button after sending Apply
+	$scope.disableButton = function(job) {
+		job.disabled = true;
+	}
+
 	function fetchAllJobs() {
 		console.log('entering list of jobs')
 		jobService.fetchAllJobs().then(function(data) {
@@ -59,6 +64,16 @@ app.controller('jobController', function($scope, jobService, $location) {
 		console.log('deleting')
 		jobService.deleteJob(jobId).then(function() {
 			alert('Deleted Successfully')
+			$location.path("/listOfJobs")
+		}, function() {
+			console.log('Unable to delete')
+		})
+	};
+
+	$scope.applyJob = function(jobId) {
+		console.log('Applied')
+		jobService.applyJob(jobId).then(function() {
+			alert('Applied Successfully')
 			$location.path("/listOfJobs")
 		}, function() {
 			console.log('Unable to delete')
