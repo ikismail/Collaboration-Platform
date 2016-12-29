@@ -10,11 +10,13 @@ app.controller('chatController', function($scope, chatService) {
 	$scope.max = 140;
 
 	$scope.addMessage = function() {
+		console.log('AddMessage method');
 		chatService.send($scope.message);
 		$scope.message = "";
 	};
 
 	chatService.receive().then(null, null, function(message) {
+		console.log('recieve Method')
 		$scope.messages.push(message);
 	});
 });

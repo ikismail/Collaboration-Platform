@@ -2,7 +2,7 @@
  * Created by ikismail on 30-Nov-16
  */
 
-var app = angular.module('myApp', [ 'ngRoute', 'ngCookies']);
+var app = angular.module('myApp', [ 'ngRoute', 'ngCookies' ]);
 
 console.log('----Starting app.js')
 app.config(function($routeProvider) {
@@ -43,6 +43,8 @@ app.config(function($routeProvider) {
 		templateUrl : 'c_chat/chatPage.html',
 		controller : 'chatController'
 
+	}).when('/uploadPicture', {
+		templateUrl : 'c_user/uploadPicture.html'
 	})
 
 	.otherwise({

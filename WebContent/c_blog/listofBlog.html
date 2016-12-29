@@ -22,7 +22,7 @@
 							currentUser.lName}}</h4>
 						<p class="w3-center">
 							<img
-								src="http://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
+								src="http://localhost:8091/Collaboration/resources/images/{{currentUser.emailId}}"
 								class="w3-circle" style="height: 106px; width: 106px"
 								alt="Avatar">
 						</p>
@@ -117,7 +117,8 @@
 						</a>
 					</div>
 
-					<div style="float: right" data-ng-show="currentUser.emailId == b.userId">
+					<div style="float: right"
+						data-ng-show="currentUser.emailId == b.userId">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
 							href="#/editBlog/{{b.blogId}}"> <i
 							class="fa fa-pencil-square-o"></i> Update
