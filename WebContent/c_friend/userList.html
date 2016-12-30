@@ -100,15 +100,22 @@
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
 					data-ng-repeat="us in users | filter:search">
 					<br>
-					<h4>Name : {{us.fName + " " + us.lName}}</h4>
-					<p>EmailId : {{us.emailId}}</p>
-					<p>Contact No : {{us.phoneNo}}</p>
-					<div style="float: right">
-						<button class="w3-btn w3-theme-d2 w3-margin-bottom"
-							data-ng-click="sendFriendRequest(us.emailId); disableButton(us)"
-							data-ng-disabled="us.disabled">
-							<i class="fa fa-pencil-square-o"></i> Send Friend Request
-						</button>
+					<div data-ng-hide="us.emailId == currentUser.emailId">
+						<div class="w3-left">
+							<img style="margin-right: 20px"
+								src="http://localhost:8091/Collaboration/resources/images/{{us.emailId}}"
+								class="img-circle" width="50" height="50">
+						</div>
+						<h4>{{us.fName + " " + us.lName}}</h4>
+						<p style="margin-top: 35px;">EmailId : {{us.emailId}}</p>
+						<p>Contact No : {{us.phoneNo}}</p>
+						<div style="float: right">
+							<button class="w3-btn w3-theme-d2 w3-margin-bottom"
+								data-ng-click="sendFriendRequest(us.emailId); disableButton(us)"
+								data-ng-disabled="us.disabled">
+								<i class="fa fa-pencil-square-o"></i> Send Friend Request
+							</button>
+						</div>
 					</div>
 				</div>
 				<!-- End Middle Column -->

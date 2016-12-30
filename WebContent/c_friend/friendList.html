@@ -100,6 +100,11 @@
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
 					data-ng-repeat="mf in myFriends | filter:search">
 					<br>
+					<div class="w3-left">
+						<img style="margin-right: 20px"
+							src="http://localhost:8091/Collaboration/resources/images/{{mf.friendId}}"
+							class="img-circle" width="50" height="50">
+					</div>
 					<h4>{{mf.friendId}}</h4>
 					<div style="float: right">
 						<a type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"
@@ -133,7 +138,7 @@
 					<div class="w3-container">
 						<p>Friend Request</p>
 						<img
-							src="http://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
+							src="http://localhost:8091/Collaboration/resources/images/{{fr.userID}}"
 							alt="Avatar" style="width: 50%"><br> <span>{{fr.userID}}</span>
 						<div class="w3-row w3-opacity">
 							<div class="w3-half">

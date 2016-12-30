@@ -92,9 +92,13 @@
 
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
 					data-ng-repeat="b in blogs | orderBy:'-blogId'">
-					<br>
-					<p hidden="true">{{b.blogId}}</p>
-					<span class="w3-right w3-opacity">{{b.blogCreatedDate}}</span>
+					<br> <span class="w3-right w3-opacity">{{b.blogCreatedDate}}</span>
+
+					<div class="w3-left">
+						<img style="margin-right:20px;"
+							src="http://localhost:8091/Collaboration/resources/images/{{b.userId}}"
+							class="img-circle" width="50" height="50">
+					</div>
 					<h4>{{b.title}}</h4>
 					<br>
 					<hr class="w3-clear">
