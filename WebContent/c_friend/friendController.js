@@ -89,6 +89,7 @@ app.controller('friendController', function(friendService, userService, $http,
 		friendService.acceptFriend(friendId).then(function(response) {
 			console.log('Accepted....')
 			getMyFriendRequests();
+			getMyFriends();
 			$location.path("/friendList");
 		}, function(errResponse) {
 			console.log('Error while Accepting friendRequest')

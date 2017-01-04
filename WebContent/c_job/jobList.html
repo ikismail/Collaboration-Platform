@@ -50,7 +50,6 @@
 						<p>Interests</p>
 						<p>
 							<span class="w3-tag w3-small w3-theme-d5">News</span> <span
-								class="w3-tag w3-small w3-theme-d4">W3Schools</span> <span
 								class="w3-tag w3-small w3-theme-d3">Labels</span> <span
 								class="w3-tag w3-small w3-theme-d2">Games</span> <span
 								class="w3-tag w3-small w3-theme-d1">Friends</span> <span
@@ -83,8 +82,20 @@
 			<!-- Middle Column -->
 			<div class="w3-col m7">
 
+				<div class="w3-row-padding">
+					<div class="w3-col m12">
+						<div class="w3-card-2 w3-round w3-white">
+							<div class="w3-container w3-padding">
+								<input type="text" class="w3-border w3-padding "
+									placeholder="Search Friends" style="width: 600px"
+									data-ng-model="jobSearch"></input>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin"
-					data-ng-repeat="j in jobs | orderBy:'-blogId'">
+					data-ng-repeat="j in jobs | orderBy:'-blogId' | filter:jobSearch">
 					<br>
 					<p hidden="true">{{j.jobId}}</p>
 					<span class="w3-right w3-opacity">{{j.postDate}}</span>

@@ -2,7 +2,7 @@
  * Created by ikism on Dec 19, 2016
  */
 // var b = anguar.module('myApp.chatService')
-app.factory('chatService', function($q, $timeout) {
+app.service('chatService', function($q, $timeout) {
 
 	console.log('starting chatService')
 	var BASE_URL = "http://localhost:8091/Collaboration";
