@@ -22,7 +22,6 @@ Developing a **Collaboration Web Application using AngularJS, Java, SpringMVC an
 
 ###Link for the Project:
 
-* [FrontEnd Application](https://github.com/ikismail/CollaborationFrontEnd.git)
 * [BackEnd Application](https://github.com/ikismail/CollabrationBackend.git)
 
 ###ScreenShots:
